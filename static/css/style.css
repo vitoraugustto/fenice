@@ -1,0 +1,462 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Varela Round', sans-serif;
+  color: var(--main-color);
+}
+
+html, body {
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+:root {
+  --header-color: #fafafa;
+  --topbar-color: #e8e8e8; 
+  --footer-color: #2b2b2b;
+  --button-color: #1f1f1f;
+  --button-hover-color: #121212;
+  --devbar-color: #131313;
+  --main-color: #a8a8a8;
+  --light-gray: #f5f5f5;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+.container {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+a::after {
+  content: '';
+  
+  display: block;
+  margin-top: 2px;
+  border-bottom: 1px solid var(--main-color);
+  transform: scaleX(0);
+  transition: transform .250s ease;
+}
+
+a:hover::after, 
+a:focus::after {
+  transform: scaleX(1);
+}
+
+a.fromRight::after{ 
+  transform-origin:100% 50%; 
+}
+
+input, textarea {
+  outline: none
+}
+
+input::placeholder, textarea::placeholder {
+  text-transform: initial;
+  transition: .3s ease;
+}
+
+button {
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  cursor: not-allowed;
+}
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+  width: 17px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 16px;
+  border: 2px solid white;
+}
+
+textarea::-webkit-scrollbar {
+  width: 17px;
+  background-color: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--footer-color);
+  border-radius: 16px;
+  border: 1px solid var(--main-color);
+}
+/*SCROLLBAR*/
+
+/*GENERAL STYLES*/
+
+
+/*HEADER*/
+header {
+  width: 100%;
+  height: auto;
+  background-color: var(--header-color);
+}
+
+header div.header-wrapper {
+  display:  flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  
+  width: 100%;
+  max-width: 1280px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+header div.menu {
+  display: inline-block;
+}
+
+header div.menu ul {
+  display: inline-block;
+}
+
+header div.menu ul li{
+  display: inline-block;
+  font-size: 21px;
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+
+header div.menu ul li:last-child {
+  margin-right: 0px;
+}
+
+form.search-field:hover, 
+form.search-field:focus {
+  opacity: .8;
+  transition: .3s;
+}
+
+header input.search-img {
+  position: relative;
+  top: 7px;
+  right: 30px;
+
+  background-image: url('../images/lupa.png');
+  background-position: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+header input.search-img:hover, 
+header input.search-img:focus {
+  transform: scale(1.2);
+}
+
+header input.search {
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+  border-left: 1px solid var(--main-color);
+  padding: 0 30px 8px 10px;
+  width: 200px;
+  background-color: transparent;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+header input.search::placeholder {
+  font-size: 15px;
+  color: var(--main-color);
+  text-transform: initial;
+}
+
+/*HEADER*/
+
+/*TOPBAR*/
+header div.topbar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  height: 35px;
+  background-color: var(--topbar-color);
+  padding: 8px 0;
+}
+
+header div.topbar ul {
+  display: inline-block;
+}
+
+header div.topbar ul li {
+  display: inline-block;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+/*TOPBAR*/
+
+/*FOOTER*/
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+  height: auto;
+  background-color: var(--footer-color);
+  padding: 15px 40px;
+}
+
+footer div.footer-box {
+  width: 23%;
+  height: auto;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+footer div.footer-box span {
+  display: block;
+  color: white;
+}
+
+footer div.footer-box span::after {
+  content: '';
+  
+  display: block;
+  width: 80px;
+  height: 1px;
+  margin: 3px auto 10px auto;
+  background-color: var(--main-color);
+}
+
+/* footer form.form-news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+} */
+
+footer p {
+  color: var(--main-color);
+  text-transform: initial;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+footer a.social-media {
+  display: inline-block;
+  margin: 2px 10px;
+
+}
+
+footer a.social-media img {  
+  width: 35px;
+  transition: .3s ease;
+}
+
+footer a.social-media img:hover,
+footer a.social-media img:focus {
+  transform: translateY(-2px);
+}
+
+footer input, 
+footer textarea {
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+  border-left:  1px solid var(--main-color);
+  padding: 0 5px 8px 10px;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: .3s ease;
+}
+
+footer textarea {
+  height: 100px;
+  display: block;
+  resize: none;
+}
+
+footer input:hover, 
+footer input:focus, 
+footer textarea:hover, 
+footer textarea:focus {
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+}
+
+footer input:hover::placeholder,
+footer input:focus::placeholder,
+footer textarea:hover::placeholder,
+footer textarea:focus::placeholder {
+  color: white;
+}
+
+footer button.form-button {
+  background-color: var(--button-color);
+  width: 100%;
+  padding: 10px;
+  color: var(--main-color);
+  border-radius: 3px;
+  border-bottom: 1px solid var(--main-color);
+  transform: translateY(0px);
+  transition: .3s ease;
+}
+
+footer button.form-button:hover, 
+footer button.form-button:focus {
+  transform: translateY(-2px);
+  background-color: var(--button-hover-color);
+  color: white;
+}
+/*FOOTER*/
+
+/*DEVBAR*/
+div.dev-bar {
+  width: 100%;
+  background-color: var(--devbar-color);
+  color: var(--main-color);
+  text-align: center;
+  padding: 1px 0 5px 0;
+}
+
+div.dev-bar p {
+  display: inline-block;
+  transition: .8s ease;
+}
+
+div.dev-bar p:hover {
+  color: #6adada;
+}
+
+div.dev-bar > img {
+  display: inline-block;
+  width: 22px;
+  
+  position: relative;
+  top: 3px;
+  left: 2px;
+}
+/*DEVBAR*/
+
+
+/*TRENDING PRODUCTS*/
+section.trending-products {
+  margin: 30px 0;
+}
+
+section.trending-products div.single-product {
+  display: inline-block;
+  width: 400px;
+  height: auto;
+  margin-right: 100px;
+  text-align: left;
+  transition: .3s transform ease;
+  cursor: pointer;
+}
+
+section.trending-products div.single-product:hover, 
+section.trending-products div.single-product:focus {
+  background-color: var(--light-gray);
+  transform: scale(1.03);
+}
+
+section.trending-products div.single-product:last-child {
+  margin-right: 0;
+}
+
+section.trending-products div.single-product > img {
+  width: 400px;
+  border-radius: 6px;
+}
+
+section.trending-products div.single-product > p {
+  font-size: 21px;
+}
+
+section.trending-products div.single-product span::after {
+  content: '';
+  
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--main-color);
+}
+/*TRENDING PRODUCTS*/
+
+
+
+/*               ########## FORM PARA TESTES DE "POST"
+.form-teste {
+  display: inline-block;
+  margin-top: 40px;
+  width: 50%;
+  border-radius: 3px;
+  height: auto;
+  padding: 10px;
+  background-color: #2b2b2b;
+}
+
+.form-teste input {
+  border: none;
+  border-bottom: 1px solid #9c9c9c;
+  border-left:  1px solid #9c9c9c;
+  padding: 0 5px 8px 10px;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: .3s ease;
+}
+
+.form-teste input:hover, 
+.form-teste input:focus {
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.form-teste input:hover::placeholder,
+.form-teste input:focus::placeholder {
+  color: white;
+}
+
+.form-teste button {
+  background-color: #1f1f1f;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 1px solid #9c9c9c;
+  transform: translateY(0px);
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.form-teste button:hover, 
+.form-teste button:focus {
+  transform: translateY(-2px);
+  background-color: #121212;
+  color: white;
+}
+
