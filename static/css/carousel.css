@@ -13,8 +13,6 @@
 .carousel .carousel_item img {
   width: 100%;
   height: auto;
-  position: relative;
-  top: -400px;
 }
 
 .carousel .carousel_item--visible {
@@ -58,5 +56,11 @@
 
   100%{
       opacity: 1;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .carousel {
+    height: auto;
   }
 }

@@ -9,6 +9,11 @@ window.onload = function() {
   const emailContact = document.getElementById('email-contact')
   const textAreaContact = document.getElementById('textarea-contact')
 
+  const hamburguer = document.getElementById('menu-hamburguer') 
+  const menuMobile = document.getElementById('menu-mobile')
+  const menuDesktop = document.getElementById('menu-desktop')
+
+
   const dominios = [
     "@hotmail.com", "@outlook.com", "@gmail.com", "@yahoo.com", "@aluno.faculdadeimpacta.com"
   ];
@@ -46,6 +51,21 @@ window.onload = function() {
     });
   });
 
+  var isOpen = 0;
+    hamburguer.addEventListener('click', function() {
+        isOpen += 1;
+
+        if (isOpen == 1) {
+            menuMobile.style.top = '0px';
+            hamburguer.style.top = '180px';
+
+        } else {
+            menuMobile.style.top = '-170px'
+            hamburguer.style.top = '10px';
+
+            isOpen = 0;
+        };
+      });
 
   [...document.getElementsByTagName('a')].forEach((a) => a.classList.add('fromRight'));
 };
