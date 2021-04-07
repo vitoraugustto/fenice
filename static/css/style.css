@@ -256,6 +256,122 @@ header div.topbar ul li {
 }
 /*TOPBAR*/
 
+/*CAROUSEL*/
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+.carousel .carousel_item,
+.carousel .carousel_item--hidden {
+  display: none;
+}
+
+.carousel .carousel_item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel .carousel_item--visible {
+  display: block;
+  animation: fadeVisibility 2s;
+}
+
+.carousel .carousel_actions {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel .carousel_actions img {
+  display: none; /*REMOVED ARROWS*/
+
+  border-radius: 50px;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel .carousel_actions img#carousel_button--prev {
+  margin-left: 20px;
+  transform: scaleX(-1);
+}
+
+.carousel .carousel_actions img#carousel_button--next {
+  margin-right: 20px;
+}
+
+@keyframes fadeVisibility{
+  0%{
+      opacity: 0;
+  }
+
+  100%{
+      opacity: 1;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .carousel {
+    height: auto;
+  }
+}
+/*CAROUSEL*/
+
+
+/*TRENDING PRODUCTS*/
+section.trending-products {
+  margin: 30px 0;
+}
+
+section.trending-products div.single-product {
+  display: inline-block;
+  width: 25%;
+  height: auto;
+  margin-right: 100px;
+  text-align: left;
+  transition: .3s transform ease;
+  cursor: pointer;
+}
+
+section.trending-products div.single-product:hover, 
+section.trending-products div.single-product:focus {
+  background-color: var(--light-gray);
+  transform: scale(1.03);
+}
+
+section.trending-products div.single-product:last-child {
+  margin-right: 0;
+}
+
+section.trending-products div.single-product > img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+section.trending-products div.single-product > p {
+  font-size: 21px;
+}
+
+section.trending-products div.single-product span::after {
+  content: '';
+  
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--main-color);
+}
+/*TRENDING PRODUCTS*/
+
+
 /*FOOTER*/
 footer {
   position: relative;
@@ -399,50 +515,6 @@ div.dev-bar > img {
 /*DEVBAR*/
 
 
-/*TRENDING PRODUCTS*/
-section.trending-products {
-  margin: 30px 0;
-}
-
-section.trending-products div.single-product {
-  display: inline-block;
-  width: 25%;
-  height: auto;
-  margin-right: 100px;
-  text-align: left;
-  transition: .3s transform ease;
-  cursor: pointer;
-}
-
-section.trending-products div.single-product:hover, 
-section.trending-products div.single-product:focus {
-  background-color: var(--light-gray);
-  transform: scale(1.03);
-}
-
-section.trending-products div.single-product:last-child {
-  margin-right: 0;
-}
-
-section.trending-products div.single-product > img {
-  width: 100%;
-  border-radius: 6px;
-}
-
-section.trending-products div.single-product > p {
-  font-size: 21px;
-}
-
-section.trending-products div.single-product span::after {
-  content: '';
-  
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: var(--main-color);
-}
-/*TRENDING PRODUCTS*/
-
 @media screen and (max-width: 1366px) {
   footer {
     padding: 15px 0;
@@ -572,7 +644,7 @@ section.trending-products div.single-product span::after {
   div.dev-bar {
     padding: 8px 3px 8px 3px;
   }
-  
+}
 
 
 
@@ -581,8 +653,7 @@ section.trending-products div.single-product span::after {
 
 
 
-
-/*               ########## FORM PARA TESTES DE "POST"
+/*               ########## FORM PARA TESTES DE [POST]
 .form-teste {
   display: inline-block;
   margin-top: 40px;
