@@ -52,17 +52,18 @@
       </div>
     </header>
 
-    <div class="container">
-      <form method="POST" action="http://18.225.31.219:1880/cliente" class="form-signin">
-        <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" required>
-        <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" required>
-        <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" required>
-        <input class="" autocomplete="nope" name="confirmEmail" id="confirmEmail" type="email" placeholder="Confirme seu email" required>
+    <!-- method="POST" action="http://18.225.31.219:1880/cliente"  -->
 
-        <br><br><br>
-        <input style="width: 68.7%;" autocomplete="nope" name="name" id="name" type="text" placeholder="Nome" required>
+    <div class="container">
+      <div class="form-signin">
+        <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
+        <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" maxlength="20" required>
+        <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" maxlength="50" required>
+        <!-- <input class="" autocomplete="nope" name="confirmEmail" id="confirmEmail" type="email" placeholder="Confirme seu email" required> -->
+
+        <input style="width: 68.7%;" autocomplete="nope" name="name" id="name" type="text" placeholder="Nome" maxlength="45" required>
         <div style="display: inline-block;" class="">
-          <select class="" name="docType" id="docType">
+          <select name="docType" id="docType" required>
             <option value="" disabled selected hidden>tipo do documento</option>
             <option value="cpf">cpf</option>
             <option value="cnpj">cnpj</option>
@@ -71,35 +72,33 @@
 
         
         <div style="display: inline-block;">
-          <select name="genre" id="genre">
+          <select name="genre" id="genre" required>
             <option value="" disabled selected hidden>gênero</option>
-            <option value="male">masculino</option>
-            <option value="female">feminino</option>
-            <option value="other">outro</option>
+            <option value="masculino">masculino</option>
+            <option value="feminino">feminino</option>
+            <option value="outro">outro</option>
           </select>
         </div>
         
-        <input autocomplete="nope" name="cpf" id="cpf" type="number" placeholder="CPF">
-        <input autocomplete="nope" name="cnpj" id="cnpj" type="number" placeholder="CNPJ">
-        
+        <input autocomplete="nope" name="docNumber" id="docNumber" type="number" placeholder="Número do documento" minlength="11" maxlength="14">
         <input autocomplete="nope" name="tel" id="phoneNum" maxlength="11" type="tel" placeholder="Número de telefone" required>
         <input autocomplete="nope" name="address" id="address" type="text" placeholder="Endereço" required>
         <input class="w50" autocomplete="nope" name="addressNumber" id="addressNumber" type="number" placeholder="Número" required>
-        <input class="w50" autocomplete="nope" name="adressComplement" id="adressComplement" type="text" placeholder="Complemento">
-        <input autocomplete="nope" name="cep" id="cep" type="number" placeholder="CEP" required>
+        <input class="w50" autocomplete="nope" name="addressComplement" id="addressComplement" type="text" placeholder="Complemento" maxlength="35">
+        <input autocomplete="nope" name="cep" id="cep" type="number" placeholder="CEP" maxlength="8" required>
         <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" required>
         <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" required>
 
-
         <button id="form-button">Enviar</button>
-      </div> 
+      </div>
+    </div> 
 
     <footer>
       <div class="footer-box">
         <form class="form-news" action="" method="GET">
           <span>newsletter</span>
           <p>Registre-se para receber as últimas notícias de vendas, ofertas, lançamentos e mais...</p>
-          <input autocomplete="off" name="email-news" id="email-news" type="email" placeholder="Seu endereço de email aqui!">
+          <input autocomplete="off" name="email-news" id="email-news" type="email" placeholder="Seu endereço de email aqui!" maxlength="50" required>
           <button disabled id="news-button" class="form-button">registrar-se</button>
         </form>
       </div>
@@ -113,8 +112,8 @@
       <div class="footer-box">
         <form class="contact" action="" method="GET">
           <span>contate-nos</span>
-          <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email">
-          <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..."></textarea>
+          <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email" maxlength="50" required>
+          <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..." maxlength="500" required></textarea>
           <button disabled id="contact-button" class="form-button">enviar</button>
         </form>
       </div>

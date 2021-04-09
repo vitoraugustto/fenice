@@ -1,6 +1,4 @@
 window.onload = function () {
-  import sendForm from "./backend";
-
   document.body.classList.remove("preload");
 
   const newsButton = document.getElementById("news-button");
@@ -23,12 +21,55 @@ window.onload = function () {
   const genre = document.getElementById("genre");
   const address = document.getElementById("address");
   const addressNumber = document.getElementById("addressNumber");
-  const addresComplement = document.getElementById("addresComplement");
+  const addressComplement = document.getElementById("addressComplement");
   const state = document.getElementById("state");
   const city = document.getElementById("city");
   const docType = document.getElementById("docType");
-  const cpf = document.getElementById("cpf");
-  const cnpj = document.getElementById("cnpj");
+  const docNumber = document.getElementById("docNumber");
+
+  ///////////////////////////////////////////////////////
+  function sendForm() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      login: {
+        usuario: user.value,
+        senha: password.value,
+      },
+      cliente: {
+        nome: name.value,
+        email: email.value,
+        sexo: genre.value,
+        telefone: phoneNum.value,
+        endereco: {
+          CEP: cep.value,
+          logradouro: address.value,
+          numero: addressNumber.value,
+          complemento: addressComplement.value,
+          estado: state.value,
+          cidade: city.value,
+        },
+        documento: {
+          tipoDocumento: docType.value,
+          numero: docNumber.value,
+        },
+      },
+    });
+    
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("http://18.225.31.219:1880/cliente", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  }
+  ///////////////////////////////////////////////////////
 
   const dominios = [
     "@hotmail.com",
@@ -90,16 +131,18 @@ window.onload = function () {
   sendFormButton.addEventListener("click", () => {
     sendForm();
 
+    alert("Informações enviadas.")
+
     console.log("Evento capturado.");
   });
 
-  docType.addEventListener("change", () => {
-    if (docType.value == "cpf") {
-      cpf.style.display = "inline-block";
-      cnpj.style.display = "none";
-    } else {
-      cnpj.style.display = "inline-block";
-      cpf.style.display = "none";
-    }
-  });
+  // docType.addEventListener("change", () => {
+  //   if (docType.value == "cpf") {
+  //     cpf.style.display = "inline-block";
+  //     cnpj.style.display = "none";
+  //   } else {
+  //     cnpj.style.display = "inline-block";
+  //     cpf.style.display = "none";
+  //   }
+  // });
 };

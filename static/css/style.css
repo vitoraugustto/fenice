@@ -231,7 +231,7 @@ header input.search {
   width: 200px;
   background-color: transparent;
   font-size: 15px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 header input.search::placeholder {
@@ -448,7 +448,7 @@ footer textarea {
   margin: 10px 0;
   width: 100%;
   font-size: 15px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background-color: transparent;
   transition: 0.3s ease;
 }
@@ -542,7 +542,7 @@ div.dev-bar > img {
   margin: 10px 0;
   width: 100%;
   font-size: 15px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background-color: transparent;
   transition: 0.3s ease;
 }
