@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <title>Fenice Arte & Joia</title>
+  </head>
+  <body class="preload">
+    <header>
+      <div class="header-wrapper">
+        <img class="logo" src="static/images/fenicelogo.png"/>
+
+        <form class="search-field" method="GET">
+          <input autocomplete="off" class="search" name="search" type="text" placeholder="Pesquisar produtos"/>
+          <input autocomplete="off" type="submit" value="" id="search-submit" class="search-img"/>
+        </form>
+      
+        <div id="menu-desktop">
+          <ul>
+            <li><a href="#">anéis</a></li> 
+            <li><a href="#">brincos</a></li>
+            <li><a href="#">colares</a></li>
+            <li><a href="#">acessórios</a></li>
+          </ul>
+        </div>
+
+        <div id="menu-mobile">
+          <ul>
+            <li><a href="#">anéis</a></li> 
+            <li><a href="#">brincos</a></li>
+            <li><a href="#">colares</a></li>
+            <li><a href="#">acessórios</a></li>
+          </ul>
+          <img id="menu-hamburguer" src="static/images/menu-hamburguer.png">
+        </div>
+
+      </div>
+      <div class="topbar">
+        <ul>
+          <li><a href="#">fale conosco</a></li>
+          <li><a href="#">faça seu pedido</a></li>
+          <li><a href="#">sobre nós</a></li>
+          <li><a href="#">ofertas</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="container">
+      <form method="POST" action="http://18.225.31.219:1880/cliente" class="form-signin">
+        <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" required>
+        <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" required>
+        <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" required>
+        <input class="" autocomplete="nope" name="confirmEmail" id="confirmEmail" type="email" placeholder="Confirme seu email" required>
+
+        <br><br><br>
+        <input style="width: 68.7%;" autocomplete="nope" name="name" id="name" type="text" placeholder="Nome" required>
+        <div style="display: inline-block;" class="">
+          <select class="" name="docType" id="docType">
+            <option value="" disabled selected hidden>tipo do documento</option>
+            <option value="cpf">cpf</option>
+            <option value="cnpj">cnpj</option>
+          </select>
+        </div>
+
+        
+        <div style="display: inline-block;">
+          <select name="genre" id="genre">
+            <option value="" disabled selected hidden>gênero</option>
+            <option value="male">masculino</option>
+            <option value="female">feminino</option>
+            <option value="other">outro</option>
+          </select>
+        </div>
+        
+        <input autocomplete="nope" name="cpf" id="cpf" type="number" placeholder="CPF">
+        <input autocomplete="nope" name="cnpj" id="cnpj" type="number" placeholder="CNPJ">
+        
+        <input autocomplete="nope" name="tel" id="phoneNum" maxlength="11" type="tel" placeholder="Número de telefone" required>
+        <input autocomplete="nope" name="address" id="address" type="text" placeholder="Endereço" required>
+        <input class="w50" autocomplete="nope" name="addressNumber" id="addressNumber" type="number" placeholder="Número" required>
+        <input class="w50" autocomplete="nope" name="adressComplement" id="adressComplement" type="text" placeholder="Complemento">
+        <input autocomplete="nope" name="cep" id="cep" type="number" placeholder="CEP" required>
+        <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" required>
+        <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" required>
+
+
+        <button id="form-button">Enviar</button>
+      </div> 
+
+    <footer>
+      <div class="footer-box">
+        <form class="form-news" action="" method="GET">
+          <span>newsletter</span>
+          <p>Registre-se para receber as últimas notícias de vendas, ofertas, lançamentos e mais...</p>
+          <input autocomplete="off" name="email-news" id="email-news" type="email" placeholder="Seu endereço de email aqui!">
+          <button disabled id="news-button" class="form-button">registrar-se</button>
+        </form>
+      </div>
+      <div class="footer-box">
+        <span>redes sociais</span>
+        <p>Conecte-se conosco nas redes sociais:</p>
+        <a class="social-media" target="_blank" href="https://www.facebook.com/fenicearteejoias/?pageid=792214191129484&ftentidentifier=1204121783272054&padding=0"><img src="static/images/fb-logo.png"></a>
+        <a class="social-media" target="_blank" href="https://www.instagram.com/fenicearteejoias/"><img src="static/images/insta-logo.png"></a>
+        <a class="social-media" href="#"><img src="static/images/zap-logo.png"></a>
+      </div>
+      <div class="footer-box">
+        <form class="contact" action="" method="GET">
+          <span>contate-nos</span>
+          <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email">
+          <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..."></textarea>
+          <button disabled id="contact-button" class="form-button">enviar</button>
+        </form>
+      </div>
+    </footer>
+    <div class="dev-bar">
+      <p>Copyright © 2021</p>
+      <p>Todos os direitos reservados.</p>
+      <p>Desenvolvido por RequestSolved!</p>
+      <img src="static/images/dragon.png">
+    </div>
+
+    <script src="static/js/script.js"></script>
+  </body>
+</html>
