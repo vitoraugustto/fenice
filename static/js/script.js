@@ -1,4 +1,6 @@
 window.onload = function () {
+  import sendForm from "./backend";
+
   document.body.classList.remove("preload");
 
   const newsButton = document.getElementById("news-button");
@@ -11,6 +13,23 @@ window.onload = function () {
   const hamburguer = document.getElementById("menu-hamburguer");
   const menuMobile = document.getElementById("menu-mobile");
 
+  const sendFormButton = document.getElementById("form-button");
+  const user = document.getElementById("user");
+  const password = document.getElementById("password");
+  const email = document.getElementById("email");
+  const confirmEmail = document.getElementById("confirmEmail");
+  const name = document.getElementById("name");
+  const phoneNum = document.getElementById("phoneNum");
+  const genre = document.getElementById("genre");
+  const address = document.getElementById("address");
+  const addressNumber = document.getElementById("addressNumber");
+  const addresComplement = document.getElementById("addresComplement");
+  const state = document.getElementById("state");
+  const city = document.getElementById("city");
+  const docType = document.getElementById("docType");
+  const cpf = document.getElementById("cpf");
+  const cnpj = document.getElementById("cnpj");
+
   const dominios = [
     "@hotmail.com",
     "@outlook.com",
@@ -19,11 +38,7 @@ window.onload = function () {
     "@aluno.faculdadeimpacta.com",
   ];
 
-  // if (newsButton.hasAttribute('disabled')) {
-  //   console.log("Not allowed!")
-  // };
-
-  emailNews.addEventListener("keyup", function () {
+  emailNews.addEventListener("keyup", () => {
     const inputEmailValue = emailNews.value.toLowerCase();
 
     if (dominios.some((dominio) => inputEmailValue.includes(dominio))) {
@@ -36,7 +51,7 @@ window.onload = function () {
   });
 
   [emailContact, textAreaContact].forEach((contactField) => {
-    contactField.addEventListener("keyup", function () {
+    contactField.addEventListener("keyup", () => {
       const inputContactValue = emailContact.value.toLowerCase();
       const textAreaContactValue = textAreaContact.value;
 
@@ -54,7 +69,7 @@ window.onload = function () {
   });
 
   var isOpen = 0;
-  hamburguer.addEventListener("click", function () {
+  hamburguer.addEventListener("click", () => {
     isOpen += 1;
 
     if (isOpen == 1) {
@@ -72,52 +87,19 @@ window.onload = function () {
     a.classList.add("fromRight")
   );
 
-  //Carousel
-  let slidePosition = 0;
+  sendFormButton.addEventListener("click", () => {
+    sendForm();
 
-  const slides = document.getElementsByClassName("carousel_item");
-  const totalSlides = slides.length;
+    console.log("Evento capturado.");
+  });
 
-  document
-    .getElementById("carousel_button--next")
-    .addEventListener("click", function () {
-      nextSlide();
-    });
-
-  document
-    .getElementById("carousel_button--prev")
-    .addEventListener("click", function () {
-      previousSlide();
-    });
-
-  function updateSlidePosition() {
-    for (var slide of slides) {
-      slide.classList.remove("carousel_item--visible");
-      slide.classList.add("carousel_item--hidden");
-    }
-
-    slides[slidePosition].classList.add("carousel_item--visible");
-  }
-
-  function nextSlide() {
-    if (slidePosition === totalSlides - 1) {
-      slidePosition = 0;
+  docType.addEventListener("change", () => {
+    if (docType.value == "cpf") {
+      cpf.style.display = "inline-block";
+      cnpj.style.display = "none";
     } else {
-      slidePosition++;
+      cnpj.style.display = "inline-block";
+      cpf.style.display = "none";
     }
-
-    updateSlidePosition();
-  }
-
-  function previousSlide() {
-    if (slidePosition === 0) {
-      slidePosition = totalSlides - 1;
-    } else {
-      slidePosition--;
-    }
-
-    updateSlidePosition();
-  }
-
-  carouselAutoPlay = setInterval(nextSlide, 6000);
+  });
 };

@@ -2,18 +2,19 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
   color: var(--main-color);
 }
 
-html, body {
+html,
+body {
   height: 100vh;
   background-color: #fafafa;
 }
 
 :root {
   --header-color: #fafafa;
-  --topbar-color: #e8e8e8; 
+  --topbar-color: #e8e8e8;
   --footer-color: #2b2b2b;
   --button-color: #1f1f1f;
   --button-hover-color: #121212;
@@ -37,35 +38,36 @@ html, body {
 
 a {
   text-decoration: none;
-
 }
 
 a::after {
-  content: '';
-  
+  content: "";
+
   display: block;
   margin-top: 2px;
   border-bottom: 1px solid var(--main-color);
   transform: scaleX(0);
-  transition: transform .250s ease;
+  transition: transform 0.25s ease;
 }
 
-a:hover::after, 
+a:hover::after,
 a:focus::after {
   transform: scaleX(1);
 }
 
-a.fromRight::after{ 
-  transform-origin:100% 50%; 
+a.fromRight::after {
+  transform-origin: 100% 50%;
 }
 
-input, textarea {
-  outline: none
+input,
+textarea {
+  outline: none;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   text-transform: initial;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 button {
@@ -73,6 +75,16 @@ button {
   outline: none;
   text-transform: uppercase;
   cursor: not-allowed;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /*SCROLLBAR*/
@@ -101,7 +113,6 @@ textarea::-webkit-scrollbar-thumb {
 
 /*GENERAL STYLES*/
 
-
 /*HEADER*/
 header {
   width: 100%;
@@ -110,11 +121,11 @@ header {
 }
 
 header div.header-wrapper {
-  display:  flex;
+  display: flex;
   align-items: center;
   align-content: center;
   justify-content: space-between;
-  
+
   width: 100%;
   max-width: 1280px;
   padding: 20px 0;
@@ -145,7 +156,7 @@ header div#menu-mobile {
   top: -170px; /*0px*/
   left: 0px;
   z-index: 1;
-  
+
   display: none;
   text-transform: uppercase;
   width: 100%;
@@ -154,13 +165,12 @@ header div#menu-mobile {
   text-align: center;
   padding: 20px 0 50px 0;
   border-bottom: 2px solid var(--devbar-color);
-  transition: .7s ease;
+  transition: 0.7s ease;
 }
 
 header div#menu-mobile ul {
   display: block;
 }
-
 
 header div#menu-mobile ul li {
   display: inline-block;
@@ -177,7 +187,7 @@ header div#menu-mobile img#menu-hamburguer {
   top: 10px; /*180px*/
   left: 20px;
 
-  transition: .7s ease;
+  transition: 0.7s ease;
 }
 
 /* header div#menu-mobile ul li:hover,
@@ -185,10 +195,10 @@ header div.menu-mobile ul li:focus  {
   background-color: var(--devbar-color);
 } */
 
-header form.search-field:hover, 
+header form.search-field:hover,
 header form.search-field:focus {
-  opacity: .8;
-  transition: .3s;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 header input.search-img {
@@ -196,7 +206,7 @@ header input.search-img {
   top: 7px;
   right: 30px;
 
-  background-image: url('../images/lupa.png');
+  background-image: url("../images/lupa.png");
   background-position: 100% 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -205,10 +215,10 @@ header input.search-img {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
-header input.search-img:hover, 
+header input.search-img:hover,
 header input.search-img:focus {
   transform: scale(1.2);
 }
@@ -309,13 +319,13 @@ header div.topbar ul li {
   margin-right: 20px;
 }
 
-@keyframes fadeVisibility{
-  0%{
-      opacity: 0;
+@keyframes fadeVisibility {
+  0% {
+    opacity: 0;
   }
 
-  100%{
-      opacity: 1;
+  100% {
+    opacity: 1;
   }
 }
 
@@ -325,7 +335,6 @@ header div.topbar ul li {
   }
 }
 /*CAROUSEL*/
-
 
 /*TRENDING PRODUCTS*/
 section.trending-products {
@@ -338,11 +347,11 @@ section.trending-products div.single-product {
   height: auto;
   margin-right: 100px;
   text-align: left;
-  transition: .3s transform ease;
+  transition: 0.3s transform ease;
   cursor: pointer;
 }
 
-section.trending-products div.single-product:hover, 
+section.trending-products div.single-product:hover,
 section.trending-products div.single-product:focus {
   background-color: var(--light-gray);
   transform: scale(1.03);
@@ -362,15 +371,14 @@ section.trending-products div.single-product > p {
 }
 
 section.trending-products div.single-product span::after {
-  content: '';
-  
+  content: "";
+
   display: block;
   width: 100%;
   height: 1px;
   background-color: var(--main-color);
 }
 /*TRENDING PRODUCTS*/
-
 
 /*FOOTER*/
 footer {
@@ -400,8 +408,8 @@ footer div.footer-box span {
 }
 
 footer div.footer-box span::after {
-  content: '';
-  
+  content: "";
+
   display: block;
   width: 80px;
   height: 1px;
@@ -419,12 +427,11 @@ footer p {
 footer a.social-media {
   display: inline-block;
   margin: 2px 10px;
-
 }
 
-footer a.social-media img {  
+footer a.social-media img {
   width: 35px;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 footer a.social-media img:hover,
@@ -432,18 +439,18 @@ footer a.social-media img:focus {
   transform: translateY(-2px);
 }
 
-footer input, 
+footer input,
 footer textarea {
   border: none;
   border-bottom: 1px solid var(--main-color);
-  border-left:  1px solid var(--main-color);
+  border-left: 1px solid var(--main-color);
   padding: 0 5px 8px 10px;
   margin: 10px 0;
   width: 100%;
   font-size: 15px;
   text-transform: uppercase;
   background-color: transparent;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 footer textarea {
@@ -452,9 +459,9 @@ footer textarea {
   resize: none;
 }
 
-footer input:hover, 
-footer input:focus, 
-footer textarea:hover, 
+footer input:hover,
+footer input:focus,
+footer textarea:hover,
 footer textarea:focus {
   border-bottom: 1px solid white;
   border-left: 1px solid white;
@@ -475,10 +482,10 @@ footer button.form-button {
   border-radius: 3px;
   border-bottom: 1px solid var(--main-color);
   transform: translateY(0px);
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
-footer button.form-button:hover, 
+footer button.form-button:hover,
 footer button.form-button:focus {
   transform: translateY(-2px);
   background-color: var(--button-hover-color);
@@ -497,7 +504,7 @@ div.dev-bar {
 
 div.dev-bar p {
   display: inline-block;
-  transition: .8s ease;
+  transition: 0.8s ease;
 }
 
 div.dev-bar p:hover {
@@ -507,13 +514,96 @@ div.dev-bar p:hover {
 div.dev-bar > img {
   display: inline-block;
   width: 22px;
-  
+
   position: relative;
   top: 3px;
   left: 2px;
 }
 /*DEVBAR*/
 
+/*FORM-SIGN IN*/
+.form-signin {
+  display: inline-block;
+  margin: 40px 0;
+  width: 50%;
+  border-radius: 3px;
+  height: auto;
+  padding: 10px;
+  background-color: var(--footer-color);
+}
+
+.form-signin input {
+  display: inline-block;
+
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+  border-left: 1px solid var(--main-color);
+  padding: 0 5px 8px 10px;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: 0.3s ease;
+}
+
+.form-signin input:hover,
+.form-signin input:focus {
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.form-signin input:hover::placeholder,
+.form-signin input:focus::placeholder {
+  color: white;
+}
+
+.form-signin button {
+  background-color: var(--button-color);
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--main-color);
+  transform: translateY(0px);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.form-signin button:hover,
+.form-signin button:focus {
+  transform: translateY(-2px);
+  background-color: var(--button-hover-color);
+  color: white;
+}
+
+.form-signin select {
+  display: inline-block;
+
+  height: 27px;
+  background-color: var(--footer-color);
+  outline: none;
+  text-transform: uppercase;
+  border: 1px solid var(--main-color);
+  transition: 0.3s ease;
+}
+
+.form-signin select:hover,
+.form-signin select:focus {
+  color: white;
+  border: 1px solid white;
+}
+
+.form-signin .w50 {
+  display: inline-block;
+  width: 49.6%;
+}
+
+#cpf,
+#cnpj {
+  display: none;
+}
+
+/*FORM-SIGN IN*/
 
 @media screen and (max-width: 1366px) {
   footer {
@@ -644,64 +734,4 @@ div.dev-bar > img {
   div.dev-bar {
     padding: 8px 3px 8px 3px;
   }
-}
-
-
-
-
-
-
-
-
-/*               ########## FORM PARA TESTES DE [POST]
-.form-teste {
-  display: inline-block;
-  margin-top: 40px;
-  width: 50%;
-  border-radius: 3px;
-  height: auto;
-  padding: 10px;
-  background-color: #2b2b2b;
-}
-
-.form-teste input {
-  border: none;
-  border-bottom: 1px solid #9c9c9c;
-  border-left:  1px solid #9c9c9c;
-  padding: 0 5px 8px 10px;
-  margin: 10px 0;
-  width: 100%;
-  font-size: 15px;
-  text-transform: uppercase;
-  background-color: transparent;
-  transition: .3s ease;
-}
-
-.form-teste input:hover, 
-.form-teste input:focus {
-  border-bottom: 1px solid white;
-  border-left: 1px solid white;
-}
-
-.form-teste input:hover::placeholder,
-.form-teste input:focus::placeholder {
-  color: white;
-}
-
-.form-teste button {
-  background-color: #1f1f1f;
-  width: 100%;
-  padding: 10px;
-  border-radius: 3px;
-  border-bottom: 1px solid #9c9c9c;
-  transform: translateY(0px);
-  transition: .3s ease;
-  cursor: pointer;
-}
-
-.form-teste button:hover, 
-.form-teste button:focus {
-  transform: translateY(-2px);
-  background-color: #121212;
-  color: white;
 }
