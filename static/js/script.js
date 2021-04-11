@@ -71,6 +71,22 @@ window.onload = function () {
   }
   ///////////////////////////////////////////////////////
 
+  
+  const singleProduct = [...document.getElementsByClassName("single-product")];
+  const buttonProducts = [...document.getElementsByClassName("button-products")];
+
+  singleProduct.forEach((product) => {
+    product.addEventListener("mouseenter", () => {
+      product.style.paddingBottom = "57px";
+    })
+  });
+
+  singleProduct.forEach((product) => {
+    product.addEventListener("mouseout", () => {
+      product.style.paddingBottom = "0";
+    })
+  });
+
   const dominios = [
     "@hotmail.com",
     "@outlook.com",

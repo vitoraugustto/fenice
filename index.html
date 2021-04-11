@@ -6,7 +6,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-
+         
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
 
@@ -15,23 +15,31 @@
   <body class="preload">
     <header>
       <div class="header-wrapper">
-        <img class="logo" src="static/images/fenicelogo.png"/>
+        <a href="index.html"><img class="logo" src="static/images/fenicelogo.png"/></a>
 
         <form class="search-field" method="GET">
           <input autocomplete="off" class="search" name="search" type="text" placeholder="Pesquisar produtos"/>
           <input autocomplete="off" type="submit" value="" id="search-submit" class="search-img"/>
+
+          <div class="menu-drop"> 
+            <img src="static/images/user.png" alt="Icone de login">
+            <div class="drop-content"> 
+              <a href="cadastro.html">cadastre-se</a> 
+              <a href="#">login</a>
+            </div>
+          </div>
         </form>
+        
       
-        <div id="menu-desktop">
-          <ul>
+        <!-- <div id="efrfdssd
             <li><a href="#">anéis</a></li> 
             <li><a href="#">brincos</a></li>
             <li><a href="#">colares</a></li>
             <li><a href="#">acessórios</a></li>
           </ul>
-        </div>
+        </div> -->
 
-        <div id="menu-mobile">
+        <!-- <div id="menu-mobile">
           <ul>
             <li><a href="#">anéis</a></li> 
             <li><a href="#">brincos</a></li>
@@ -39,18 +47,14 @@
             <li><a href="#">acessórios</a></li>
           </ul>
           <img id="menu-hamburguer" src="static/images/menu-hamburguer.png">
-        </div>
+        </div> -->
 
       </div>
       <div class="topbar">
         <ul>
-          <li><a href="#">fale conosco</a></li>
-          <li><a href="#">faça seu pedido</a></li>
           <li><a href="#">sobre nós</a></li>
-          <li><a href="#">ofertas</a></li>
-        </ul>
-        <span style="display: block; text-transform: uppercase; margin-top: 5px;"> <a href="cadastro.html">faça seu cadastro!</a> </span>
-
+          <li><a href="produtos.html">produtos</a></li>
+          <li><a href="#">fale conosco</a></li>
       </div>
     </header>
 
@@ -76,16 +80,19 @@
           <img id="1" src="static/images/trending1.jpg">
           <p>Bracelete de Pena - Prata</p>
           <span>R$ 29,90</span>
+          <button class="button-products styled-button">encomendar</button>
         </div>
         <div class="single-product">
           <img id="2" src="static/images/trending2.jpg">
           <p>Aliança de Noivado - Ouro</p>
           <span>R$ 1990,90</span>
+          <button class="button-products styled-button">encomendar</button>
         </div>
         <div class="single-product">
           <img id="3" src="static/images/trending3.jpg">
           <p>Anel personalizado</p>
           <span>R$ 39,90</span>
+          <button class="button-products styled-button">encomendar</button>
         </div>
       </section>
     </div>
@@ -95,8 +102,8 @@
         <form class="form-news" action="" method="GET">
           <span>newsletter</span>
           <p>Registre-se para receber as últimas notícias de vendas, ofertas, lançamentos e mais...</p>
-          <input autocomplete="off" name="email-news" id="email-news" type="email" placeholder="Seu endereço de email aqui!">
-          <button disabled id="news-button" class="form-button">registrar-se</button>
+          <input autocomplete="off" name="email-news" id="email-news" type="email" placeholder="Seu endereço de email aqui!" maxlength="50" required>
+          <button disabled id="news-button" class="styled-button">registrar-se</button>
         </form>
       </div>
       <div class="footer-box">
@@ -109,9 +116,9 @@
       <div class="footer-box">
         <form class="contact" action="" method="GET">
           <span>contate-nos</span>
-          <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email">
-          <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..."></textarea>
-          <button disabled id="contact-button" class="form-button">enviar</button>
+          <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email" maxlength="50" required>
+          <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..." maxlength="500" required></textarea>
+          <button disabled id="contact-button" class="styled-button">enviar</button>
         </form>
       </div>
     </footer>
