@@ -58,46 +58,51 @@
       </div>
     </header>
 
-    <!-- method="POST" action="http://18.225.31.219:1880/cliente"  -->
-
-    <div class="container">
-      <div class="form-signin">
-        <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
-        <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" maxlength="20" required>
-        <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" maxlength="50" required>
-        <!-- <input class="" autocomplete="nope" name="confirmEmail" id="confirmEmail" type="email" placeholder="Confirme seu email" required> -->
-
-        <input style="width: 68.7%;" autocomplete="nope" name="name" id="name" type="text" placeholder="Nome" maxlength="45" required>
-        <div style="display: inline-block;" class="">
-          <select name="docType" id="docType" required>
-            <option value="" disabled selected hidden>tipo do documento</option>
-            <option value="cpf">cpf</option>
-            <option value="cnpj">cnpj</option>
-          </select>
-        </div>
-
-        
-        <div style="display: inline-block;">
-          <select name="genre" id="genre" required>
-            <option value="" disabled selected hidden>gênero</option>
-            <option value="masculino">masculino</option>
-            <option value="feminino">feminino</option>
-            <option value="outro">outro</option>
-          </select>
-        </div>
-        
-        <input autocomplete="nope" name="docNumber" id="docNumber" type="number" placeholder="Número do documento" minlength="11" maxlength="14">
-        <input autocomplete="nope" name="tel" id="phoneNum" maxlength="11" type="tel" placeholder="Número de telefone" required>
-        <input autocomplete="nope" name="address" id="address" type="text" placeholder="Endereço" required>
-        <input class="w50" autocomplete="nope" name="addressNumber" id="addressNumber" type="number" placeholder="Número" required>
-        <input class="w50" autocomplete="nope" name="addressComplement" id="addressComplement" type="text" placeholder="Complemento" maxlength="35">
-        <input autocomplete="nope" name="cep" id="cep" type="number" placeholder="CEP" maxlength="8" required>
-        <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" required>
-        <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" required>
-
-        <button id="form-button">Enviar</button>
+    <div class="carousel">
+      <div class="carousel_item carousel_item--visible">
+          <img src="https://images.wallpaperscraft.com/image/forest_trees_fog_110131_1920x1080.jpg">
       </div>
-    </div> 
+      <div class="carousel_item">
+          <img src="https://wallpapershome.com/images/wallpapers/fog-1920x1080-5k-4k-wallpaper-trees-forest-12603.jpg">
+      </div>
+      <div class="carousel_item">
+          <img src="https://papers.co/wallpaper/papers.co-nd57-mountain-fog-nature-view-wood-forest-25-wallpaper.jpg">
+      </div>
+      <div class="carousel_actions">
+          <img src="static/images/arrow.png" id="carousel_button--prev"></img>
+          <img src="static/images/arrow.png" id="carousel_button--next"></img>
+      </div>
+    </div>
+    
+    <div class="container">
+      <section class="trending-products">
+        <div class="single-product">
+          <img id="1" src="static/images/trending1.jpg">
+          <p>Bracelete de Pena - Prata</p>
+          <span>R$ 29,90</span>
+        </div>
+        <div class="single-product">
+          <img id="2" src="static/images/trending2.jpg">
+          <p>Aliança de Noivado - Ouro</p>
+          <span>R$ 1990,90</span>
+        </div>
+        <div class="single-product">
+          <img id="2" src="static/images/trending2.jpg">
+          <p>Aliança de Noivado - Ouro</p>
+          <span>R$ 1990,90</span>
+        </div>
+        <div class="single-product">
+          <img id="2" src="static/images/trending2.jpg">
+          <p>Aliança de Noivado - Ouro</p>
+          <span>R$ 1990,90</span>
+        </div>
+        <div class="single-product">
+          <img id="2" src="static/images/trending2.jpg">
+          <p>Aliança de Noivado - Ouro</p>
+          <span>R$ 1990,90</span>
+        </div>
+      </section>
+    </div>
 
     <footer>
       <div class="footer-box">
@@ -105,7 +110,7 @@
           <span>newsletter</span>
           <p>Registre-se para receber as últimas notícias de vendas, ofertas, lançamentos e mais...</p>
           <input autocomplete="off" name="email-news" id="email-news" type="email" placeholder="Seu endereço de email aqui!" maxlength="50" required>
-          <button disabled id="news-button" class="styled-button">registrar-se</button>
+          <button disabled id="news-button" class="form-button">registrar-se</button>
         </form>
       </div>
       <div class="footer-box">
@@ -120,7 +125,7 @@
           <span>contate-nos</span>
           <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email" maxlength="50" required>
           <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..." maxlength="500" required></textarea>
-          <button disabled id="contact-button" class="styled-button">enviar</button>
+          <button disabled id="contact-button" class="form-button">enviar</button>
         </form>
       </div>
     </footer>
@@ -133,5 +138,6 @@
 
     <script src="static/js/script.js"></script>
     <script src="static/js/carousel.js"></script>
+
   </body>
 </html>

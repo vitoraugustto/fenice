@@ -87,6 +87,31 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.styled-button {
+  background-color: var(--button-color);
+  width: 100%;
+  padding: 10px;
+  color: var(--main-color);
+  border-radius: 3px;
+  border-bottom: 1px solid var(--main-color);
+  transform: translateY(0px);
+  transition: 0.3s ease;
+}
+
+.button-products {
+  display: none;
+  width: 50%;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.styled-button:hover,
+.styled-button:focus {
+  transform: translateY(-2px);
+  background-color: var(--button-hover-color);
+  color: white;
+}
+
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
   width: 17px;
@@ -240,6 +265,29 @@ header input.search::placeholder {
   text-transform: initial;
 }
 
+/* Menu Dropdown - Login */
+header div.menu-drop a {
+  text-transform: uppercase;
+}
+
+.drop-content{
+  display: none;
+  position: absolute;
+  z-index: 5;
+  color: white;
+  padding: 5px 9px;
+}
+
+.menu-drop {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.menu-drop:hover .drop-content{
+  display: block;
+  box-shadow: 1px 1px 8px gray;
+}
+
 /*HEADER*/
 
 /*TOPBAR*/
@@ -264,6 +312,8 @@ header div.topbar ul li {
   text-transform: uppercase;
   margin-right: 30px;
 }
+
+
 /*TOPBAR*/
 
 /*CAROUSEL*/
@@ -343,12 +393,12 @@ section.trending-products {
 
 section.trending-products div.single-product {
   display: inline-block;
-  width: 25%;
+  width: 15%;
   height: auto;
   margin-right: 100px;
-  text-align: left;
-  transition: 0.3s transform ease;
-  cursor: pointer;
+  box-shadow: 2px 2px 8px;
+  padding-bottom: -57px;
+  transition: 0.3s transform ease, 0.3s padding-bottom ease;
 }
 
 section.trending-products div.single-product:hover,
@@ -363,21 +413,24 @@ section.trending-products div.single-product:last-child {
 
 section.trending-products div.single-product > img {
   width: 100%;
-  border-radius: 6px;
 }
 
 section.trending-products div.single-product > p {
   font-size: 21px;
 }
 
-section.trending-products div.single-product span::after {
+section.trending-products div.single-product > span {
+  display: block;
+}
+
+/* section.trending-products div.single-product span::after {
   content: "";
 
   display: block;
-  width: 100%;
+  width: 1%;
   height: 1px;
   background-color: var(--main-color);
-}
+} */
 /*TRENDING PRODUCTS*/
 
 /*FOOTER*/
@@ -471,24 +524,6 @@ footer input:hover::placeholder,
 footer input:focus::placeholder,
 footer textarea:hover::placeholder,
 footer textarea:focus::placeholder {
-  color: white;
-}
-
-footer button.form-button {
-  background-color: var(--button-color);
-  width: 100%;
-  padding: 10px;
-  color: var(--main-color);
-  border-radius: 3px;
-  border-bottom: 1px solid var(--main-color);
-  transform: translateY(0px);
-  transition: 0.3s ease;
-}
-
-footer button.form-button:hover,
-footer button.form-button:focus {
-  transform: translateY(-2px);
-  background-color: var(--button-hover-color);
   color: white;
 }
 /*FOOTER*/
