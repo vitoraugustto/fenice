@@ -25,7 +25,7 @@
             <img src="static/images/user.png" alt="Icone de login">
             <div class="drop-content"> 
               <a href="cadastro.html">cadastre-se</a> 
-              <a href="#">login</a>
+              <a href="login.html">login</a>
             </div>
           </div>
         </form>
@@ -39,7 +39,7 @@
           </ul>
         </div> -->
 
-        <!-- <div id="menu-mobile">
+        <div id="menu-mobile">
           <ul>
             <li><a href="#">anéis</a></li> 
             <li><a href="#">brincos</a></li>
@@ -47,7 +47,7 @@
             <li><a href="#">acessórios</a></li>
           </ul>
           <img id="menu-hamburguer" src="static/images/menu-hamburguer.png">
-        </div> -->
+        </div>
 
       </div>
       <div class="topbar">
@@ -58,27 +58,27 @@
       </div>
     </header>
 
-    <!-- method="POST" action="http://18.225.31.219:1880/cliente"  -->
+    
 
-    <div class="container">
+    <form class="container" method="POST" action="http://18.225.31.219:1880/cliente" >
       <div class="form-signin">
-        <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
-        <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" maxlength="20" required>
+        <input class="" autocomplete="nope" name="usuario" id="usuario" type="text" placeholder="Usuário" maxlength="20" required>
+        <input class="" autocomplete="nope" name="senha" id="senha" type="password" placeholder="Senha" maxlength="20" required>
         <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" maxlength="50" required>
         <!-- <input class="" autocomplete="nope" name="confirmEmail" id="confirmEmail" type="email" placeholder="Confirme seu email" required> -->
 
-        <input style="width: 68.7%;" autocomplete="nope" name="name" id="name" type="text" placeholder="Nome" maxlength="45" required>
+        <input autocomplete="nope" name="nome" id="nome" type="text" placeholder="Nome" maxlength="45" required>
         <div style="display: inline-block;" class="">
-          <select name="docType" id="docType" required>
+          <!-- <select name="tipoDoc" id="tipoDoc" required>
             <option value="" disabled selected hidden>tipo do documento</option>
             <option value="cpf">cpf</option>
             <option value="cnpj">cnpj</option>
-          </select>
+          </select> -->
         </div>
 
         
         <div style="display: inline-block;">
-          <select name="genre" id="genre" required>
+          <select name="genero" id="genero" required>
             <option value="" disabled selected hidden>gênero</option>
             <option value="masculino">masculino</option>
             <option value="feminino">feminino</option>
@@ -86,18 +86,18 @@
           </select>
         </div>
         
-        <input autocomplete="nope" name="docNumber" id="docNumber" type="number" placeholder="Número do documento" minlength="11" maxlength="14">
-        <input autocomplete="nope" name="tel" id="phoneNum" maxlength="11" type="tel" placeholder="Número de telefone" required>
-        <input autocomplete="nope" name="address" id="address" type="text" placeholder="Endereço" required>
-        <input class="w50" autocomplete="nope" name="addressNumber" id="addressNumber" type="number" placeholder="Número" required>
-        <input class="w50" autocomplete="nope" name="addressComplement" id="addressComplement" type="text" placeholder="Complemento" maxlength="35">
-        <input autocomplete="nope" name="cep" id="cep" type="number" placeholder="CEP" maxlength="8" required>
-        <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" required>
-        <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" required>
+        <input autocomplete="nope" name="docNumber" id="numDoc" type="tel" placeholder="Número do CPF (11 digitos)" maxlength="11" required>
+        <input autocomplete="nope" name="tel" id="telefone" type="tel" placeholder="Número de telefone" maxlength="11" required>
+        <input autocomplete="nope" name="endereco" id="endereco" type="text" placeholder="Endereço" maxlength="25" required>
+        <input class="w50" autocomplete="nope" name="enderecoNumero" id="enderecoNumero" type="text" placeholder="Número" maxlength="5" required>
+        <input class="w50" autocomplete="nope" name="enderecoComplemento" id="enderecoComplemento" type="text" placeholder="Complemento" maxlength="25">
+        <input autocomplete="nope" name="cep" id="cep" type="tel" placeholder="CEP" maxlength="8" required>
+        <input autocomplete="nope" name="estado" id="estado" type="text" placeholder="Estado" maxlength="10" required>
+        <input autocomplete="nope" name="cidade" id="cidade" type="text" placeholder="Cidade" maxlength="10"required>
 
-        <button id="form-button">Enviar</button>
+        <button type="submit" id="form-button">Enviar</button>
       </div>
-    </div> 
+    </form> 
 
     <footer>
       <div class="footer-box">

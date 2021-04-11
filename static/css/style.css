@@ -99,7 +99,6 @@ input[type="number"] {
 }
 
 .button-products {
-  display: none;
   width: 50%;
   cursor: pointer;
   margin: 10px auto;
@@ -273,12 +272,16 @@ header div.menu-drop a {
 .drop-content{
   display: none;
   position: absolute;
-  z-index: 5;
-  color: white;
   padding: 5px 9px;
+  background-color: white;
+  z-index: 1;
+  width: 150px;
 }
 
 .menu-drop {
+  position: relative;
+  top: 7px;
+
   display: inline-block;
   cursor: pointer;
 }
@@ -393,8 +396,9 @@ section.trending-products {
 
 section.trending-products div.single-product {
   display: inline-block;
-  width: 15%;
+  width: 22%;
   height: auto;
+  overflow: hidden;
   margin-right: 100px;
   box-shadow: 2px 2px 8px;
   padding-bottom: -57px;
@@ -556,20 +560,21 @@ div.dev-bar > img {
 }
 /*DEVBAR*/
 
+/* CONFIGU FORMS */
 /*FORM-SIGN IN*/
-.form-signin {
+.form-signin, .form-login {
   display: inline-block;
   margin: 40px 0;
   width: 50%;
-  border-radius: 3px;
+  border-radius: 10px;
   height: auto;
   padding: 10px;
   background-color: var(--footer-color);
 }
 
-.form-signin input {
+.form-signin input, 
+.form-login input {
   display: inline-block;
-
   border: none;
   border-bottom: 1px solid var(--main-color);
   border-left: 1px solid var(--main-color);
@@ -583,17 +588,21 @@ div.dev-bar > img {
 }
 
 .form-signin input:hover,
-.form-signin input:focus {
+.form-signin input:focus,
+.form-login input:hover,
+.form-login input:focus {
   border-bottom: 1px solid white;
   border-left: 1px solid white;
 }
 
 .form-signin input:hover::placeholder,
-.form-signin input:focus::placeholder {
+.form-signin input:focus::placeholder,
+.form-login input:hover,
+.form-login input:focus {
   color: white;
 }
 
-.form-signin button {
+.form-signin button, .form-login button {
   background-color: var(--button-color);
   width: 100%;
   padding: 10px;
@@ -605,7 +614,9 @@ div.dev-bar > img {
 }
 
 .form-signin button:hover,
-.form-signin button:focus {
+.form-signin button:focus,
+.form-login button:hover,
+.form-login button:focus {
   transform: translateY(-2px);
   background-color: var(--button-hover-color);
   color: white;
@@ -613,7 +624,6 @@ div.dev-bar > img {
 
 .form-signin select {
   display: inline-block;
-
   height: 27px;
   background-color: var(--footer-color);
   outline: none;
@@ -769,4 +779,24 @@ div.dev-bar > img {
   div.dev-bar {
     padding: 8px 3px 8px 3px;
   }
+}
+
+
+/* Bordered form */
+.avatar {
+  width: 10%;
+  border-radius: 50%;
+}
+.user-login, .password-login  {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.checkbox-login {
+  width: 20px;
+  display: inline-block;
 }
