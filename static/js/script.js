@@ -12,21 +12,20 @@ window.onload = function () {
   const menuMobile = document.getElementById("menu-mobile");
 
   const sendFormButton = document.getElementById("form-button");
-  const usuario = document.getElementById("usuario");
-  const senha = document.getElementById("senha");
-  const email = document.getElementById("email");
-  const confirmEmail = document.getElementById("confirmEmail");
-  const nome = document.getElementById("nome");
-  const telefone = document.getElementById("telefone");
-  const genero = document.getElementById("genero");
+  const user = document.getElementById("user");
+  const password = document.getElementById("password");
+  const clientEmail = document.getElementById("clientEmail");
+  const clientName = document.getElementById("clientName");
+  const phoneNumber = document.getElementById("phoneNumber");
+  const clientGenre = document.getElementById("clientGenre");
   const cep = document.getElementById("cep");
-  const endereco = document.getElementById("endereco");
-  const enderecoNumero = document.getElementById("enderecoNumero");
-  const enderecoComplemento = document.getElementById("enderecoComplemento");
-  const estado = document.getElementById("estado");
-  const cidade = document.getElementById("cidade");
+  const address = document.getElementById("address");
+  const addressNumber = document.getElementById("addressNumber");
+  const addressComplement = document.getElementById("addressComplement");
+  const state = document.getElementById("state");
+  const city = document.getElementById("city");
   // const tipoDoc = document.getElementById("tipoDoc");
-  const numDoc = document.getElementById("numDoc");
+  const docNumber = document.getElementById("docNumber");
 
   ///////////////////////////////////////////////////////
   function sendForm() {
@@ -35,25 +34,25 @@ window.onload = function () {
 
     var raw = JSON.stringify({
       login: {
-        usuario: usuario.value,
-        senha: senha.value,
+        usuario: user.value,
+        senha: password.value,
       },
       cliente: {
-        nome: nome.value,
-        email: email.value,
-        sexo: genero.value,
-        telefone: telefone.value,
+        nome: clientName.value,
+        email: clientEmail.value,
+        sexo: clientGenre.value,
+        telefone: phoneNum.value,
         endereco: {
           CEP: cep.value,
-          logradouro: endereco.value,
-          numero: enderecoNumero.value,
-          complemento: enderecoComplemento.value,
-          estado: estado.value,
-          cidade: cidade.value,
+          logradouro: address.value,
+          numero: addressNumber.value,
+          complemento: addressComplement.value,
+          estado: state.value,
+          cidade: city.value,
         },
         documento: {
           // tipoDocumento: tipoDoc.value,
-          numero: numDoc.value,
+          numero: docNumber.value,
         },
       },
     });
@@ -71,10 +70,9 @@ window.onload = function () {
       .catch((error) => console.log("error", error));
   }
   ///////////////////////////////////////////////////////
-
   
-  const singleProduct = [...document.getElementsByClassName("single-product")];
-  const buttonProducts = [...document.getElementsByClassName("button-products")];
+  // const singleProduct = [...document.getElementsByClassName("single-product")];
+  // const buttonProducts = [...document.getElementsByClassName("button-products")];
 
   // singleProduct.forEach((product) => {
   //   product.addEventListener("mouseenter", () => {
@@ -150,6 +148,5 @@ window.onload = function () {
 
   sendFormButton.addEventListener("click", () => {
     sendForm();
-    // document.getElementsByClassName("container")[0].reset();
   });
 };

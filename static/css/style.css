@@ -264,18 +264,8 @@ header input.search::placeholder {
   text-transform: initial;
 }
 
-/* Menu Dropdown - Login */
 header div.menu-drop a {
   text-transform: uppercase;
-}
-
-.drop-content{
-  display: none;
-  position: absolute;
-  padding: 5px 9px;
-  background-color: white;
-  z-index: 1;
-  width: 150px;
 }
 
 .menu-drop {
@@ -286,11 +276,21 @@ header div.menu-drop a {
   cursor: pointer;
 }
 
-.menu-drop:hover .drop-content{
-  display: block;
+.drop-content{
+  position: absolute;
+  left: -45px;
+  z-index: 1;
+  
+  display: none;
+  width: 135px;
+  padding: 5px 9px;
+  background-color: white;
   box-shadow: 1px 1px 8px gray;
 }
 
+.menu-drop:hover .drop-content{
+  display: block;
+}
 /*HEADER*/
 
 /*TOPBAR*/
@@ -314,6 +314,10 @@ header div.topbar ul li {
   font-size: 15px;
   text-transform: uppercase;
   margin-right: 30px;
+}
+
+header div.topbar ul li:last-child {
+  margin-right: 0;
 }
 
 
@@ -560,9 +564,8 @@ div.dev-bar > img {
 }
 /*DEVBAR*/
 
-/* CONFIGU FORMS */
-/*FORM-SIGN IN*/
-.form-signin, .form-login {
+/*FORMS */
+form.styled-form {
   display: inline-block;
   margin: 40px 0;
   width: 50%;
@@ -572,8 +575,7 @@ div.dev-bar > img {
   background-color: var(--footer-color);
 }
 
-.form-signin input, 
-.form-login input {
+form.styled-form input {
   display: inline-block;
   border: none;
   border-bottom: 1px solid var(--main-color);
@@ -582,27 +584,22 @@ div.dev-bar > img {
   margin: 10px 0;
   width: 100%;
   font-size: 15px;
-  /* text-transform: uppercase; */
   background-color: transparent;
   transition: 0.3s ease;
 }
 
-.form-signin input:hover,
-.form-signin input:focus,
-.form-login input:hover,
-.form-login input:focus {
+form.styled-form input:hover,
+form.styled-form input:focus {
   border-bottom: 1px solid white;
   border-left: 1px solid white;
 }
 
-.form-signin input:hover::placeholder,
-.form-signin input:focus::placeholder,
-.form-login input:hover,
-.form-login input:focus {
+form.styled-form input:hover::placeholder,
+form.styled-form input:focus::placeholder {
   color: white;
 }
 
-.form-signin button, .form-login button {
+form.styled-form button {
   background-color: var(--button-color);
   width: 100%;
   padding: 10px;
@@ -613,16 +610,14 @@ div.dev-bar > img {
   cursor: pointer;
 }
 
-.form-signin button:hover,
-.form-signin button:focus,
-.form-login button:hover,
-.form-login button:focus {
+form.styled-form button:hover,
+form.styled-form button:focus {
   transform: translateY(-2px);
   background-color: var(--button-hover-color);
   color: white;
 }
 
-.form-signin select {
+form.styled-form select {
   display: inline-block;
   height: 27px;
   background-color: var(--footer-color);
@@ -632,23 +627,38 @@ div.dev-bar > img {
   transition: 0.3s ease;
 }
 
-.form-signin select:hover,
-.form-signin select:focus {
+form.styled-form select:hover,
+form.styled-form select:focus {
   color: white;
   border: 1px solid white;
 }
 
-.form-signin .w50 {
+form.styled-form .w50 {
   display: inline-block;
   width: 49.6%;
 }
 
-#cpf,
-#cnpj {
-  display: none;
+form.styled-form img.avatar {
+  display: block;
+  width: 95px;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
 }
 
-/*FORM-SIGN IN*/
+form.styled-form input[type=checkbox].checkbox-login {
+  position: relative;
+  top: 1px;
+
+  display: inline-block;
+  margin-right: 4px;
+  width: auto;
+}
+
+form.login-form {
+  width: 25%;
+  text-align: left;
+}
+/*FORMS*/
 
 @media screen and (max-width: 1366px) {
   footer {
@@ -743,8 +753,7 @@ div.dev-bar > img {
   }
 
   header div.topbar ul li {
-    width: 49%;
-    margin: 0;
+    margin-right: 10px;
   }
 
   section.trending-products div.single-product {
@@ -779,24 +788,4 @@ div.dev-bar > img {
   div.dev-bar {
     padding: 8px 3px 8px 3px;
   }
-}
-
-
-/* Bordered form */
-.avatar {
-  width: 10%;
-  border-radius: 50%;
-}
-.user-login, .password-login  {
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.checkbox-login {
-  width: 20px;
-  display: inline-block;
 }

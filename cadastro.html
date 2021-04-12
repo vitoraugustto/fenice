@@ -24,14 +24,14 @@
           <div class="menu-drop"> 
             <img src="static/images/user.png" alt="Icone de login">
             <div class="drop-content"> 
-              <a href="cadastro.html">cadastre-se</a> 
               <a href="login.html">login</a>
+              <a href="cadastro.html">cadastre-se</a> 
             </div>
           </div>
         </form>
-        
-      
-        <!-- <div id="efrfdssd
+
+        <!-- <div id="menu-desktop">
+          <ul>
             <li><a href="#">anéis</a></li> 
             <li><a href="#">brincos</a></li>
             <li><a href="#">colares</a></li>
@@ -53,32 +53,20 @@
       <div class="topbar">
         <ul>
           <li><a href="#">sobre nós</a></li>
-          <li><a href="produtos.html">produtos</a></li>
-          <li><a href="#">fale conosco</a></li>
+          <li><a href="#">produtos</a></li>
+          <li><a href="#" id="contactUs">fale conosco</a></li>
       </div>
     </header>
 
-    
-
-    <form class="container" method="POST" action="http://18.225.31.219:1880/cliente" >
-      <div class="form-signin">
-        <input class="" autocomplete="nope" name="usuario" id="usuario" type="text" placeholder="Usuário" maxlength="20" required>
-        <input class="" autocomplete="nope" name="senha" id="senha" type="password" placeholder="Senha" maxlength="20" required>
+    <div class="container">
+      <form class="styled-form" method="POST" action="http://18.225.31.219:1880/cliente" >
+        <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
+        <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" maxlength="20" required>
         <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" maxlength="50" required>
-        <!-- <input class="" autocomplete="nope" name="confirmEmail" id="confirmEmail" type="email" placeholder="Confirme seu email" required> -->
+        <input style="width: 82.8%;" autocomplete="nope" name="clientName" id="clientName" type="text" placeholder="Nome" maxlength="45" required>
 
-        <input autocomplete="nope" name="nome" id="nome" type="text" placeholder="Nome" maxlength="45" required>
-        <div style="display: inline-block;" class="">
-          <!-- <select name="tipoDoc" id="tipoDoc" required>
-            <option value="" disabled selected hidden>tipo do documento</option>
-            <option value="cpf">cpf</option>
-            <option value="cnpj">cnpj</option>
-          </select> -->
-        </div>
-
-        
         <div style="display: inline-block;">
-          <select name="genero" id="genero" required>
+          <select name="genre" id="genre" required>
             <option value="" disabled selected hidden>gênero</option>
             <option value="masculino">masculino</option>
             <option value="feminino">feminino</option>
@@ -86,18 +74,18 @@
           </select>
         </div>
         
-        <input autocomplete="nope" name="docNumber" id="numDoc" type="tel" placeholder="Número do CPF (11 digitos)" maxlength="11" required>
-        <input autocomplete="nope" name="tel" id="telefone" type="tel" placeholder="Número de telefone" maxlength="11" required>
-        <input autocomplete="nope" name="endereco" id="endereco" type="text" placeholder="Endereço" maxlength="25" required>
-        <input class="w50" autocomplete="nope" name="enderecoNumero" id="enderecoNumero" type="text" placeholder="Número" maxlength="5" required>
-        <input class="w50" autocomplete="nope" name="enderecoComplemento" id="enderecoComplemento" type="text" placeholder="Complemento" maxlength="25">
+        <input autocomplete="nope" name="docNumber" id="docNumber" type="tel" placeholder="Número do CPF (11 digitos)" maxlength="11" required>
+        <input autocomplete="nope" name="phoneNumber" id="phoneNumber" type="tel" placeholder="Número de telefone" maxlength="11" required>
+        <input autocomplete="nope" name="address" id="address" type="text" placeholder="Endereço" maxlength="25" required>
+        <input class="w50" autocomplete="nope" name="addressNumber" id="addressNumber" type="text" placeholder="Número" maxlength="5" required>
+        <input class="w50" autocomplete="nope" name="addressComplement" id="addressComplement" type="text" placeholder="Complemento" maxlength="25">
         <input autocomplete="nope" name="cep" id="cep" type="tel" placeholder="CEP" maxlength="8" required>
-        <input autocomplete="nope" name="estado" id="estado" type="text" placeholder="Estado" maxlength="10" required>
-        <input autocomplete="nope" name="cidade" id="cidade" type="text" placeholder="Cidade" maxlength="10"required>
+        <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" maxlength="10" required>
+        <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" maxlength="10"required>
 
         <button type="submit" id="form-button">Enviar</button>
-      </div>
-    </form> 
+      </form>
+    </div> 
 
     <footer>
       <div class="footer-box">
@@ -116,7 +104,7 @@
         <a class="social-media" href="#"><img src="static/images/zap-logo.png"></a>
       </div>
       <div class="footer-box">
-        <form class="contact" action="" method="GET">
+        <form id="contactForm" class="contact" action="" method="GET">
           <span>contate-nos</span>
           <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email" maxlength="50" required>
           <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..." maxlength="500" required></textarea>
@@ -132,6 +120,5 @@
     </div>
 
     <script src="static/js/script.js"></script>
-    <script src="static/js/carousel.js"></script>
   </body>
 </html>
