@@ -111,6 +111,10 @@ input[type="number"] {
   color: white;
 }
 
+.clear {
+  clear: both;
+}
+
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
   width: 17px;
@@ -274,21 +278,50 @@ header div.menu-drop a {
 
   display: inline-block;
   cursor: pointer;
+  transition: .3s transform ease;
 }
 
-.drop-content{
+.menu-drop:hover {
+  transform: scale(1.1);
+}
+
+.drop-content {
   position: absolute;
   left: -45px;
   z-index: 1;
   
   display: none;
-  width: 135px;
+  width: auto;
   padding: 5px 9px;
-  background-color: white;
-  box-shadow: 1px 1px 8px gray;
+  background-color: var(--footer-color);
+  color: var(--main-color);
+  box-shadow: 2px 2px 8px;
+  cursor: auto;
+  /* animation: zoom .3s ease; */
 }
 
-.menu-drop:hover .drop-content{
+.menu-drop ul li {
+  display: block;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 3px;
+
+  transition: .3s background-color ease-in;
+}
+
+.menu-drop ul li:hover {
+  background-color: var(--devbar-color);
+}
+
+.menu-drop ul li:last-child {
+  margin-bottom: 0px;
+}
+
+.menu-drop:hover .drop-content {
   display: block;
 }
 /*HEADER*/
@@ -654,11 +687,68 @@ form.styled-form input[type=checkbox].checkbox-login {
   width: auto;
 }
 
-form.login-form {
+form#loginForm {
+  position: fixed;
+  top: 23%;
+  left: 37%;
+  z-index: 99;
+
+  display: none;
   width: 25%;
   text-align: left;
+  animation: .3s zoom ease;
+  box-shadow: 2px 2px 8px black;
+}
+
+form#signinForm {
+  position: fixed;
+  top: 12%;
+  left: 24.9%;
+  z-index: 99;
+
+  display: none;
+  animation: .3s zoom ease;
+  box-shadow: 2px 2px 8px black;
+}
+
+#overlay {
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index:999;
+  
+  display: none;
+  width:100vw;
+  height:100vh;
+  background-color: black;
+  background-color:rgba(0,0,0,.75)
+}
+
+#closeButton1, 
+#closeButton2 {
+  float: right;
+  cursor: pointer;
+
+  transition: .1s transform ease;
+}
+
+#closeButton1:hover,
+#closeButton2:hover {
+  transform: scale(1.2);
 }
 /*FORMS*/
+
+
+/*ANIMATIONS*/
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
 
 @media screen and (max-width: 1366px) {
   footer {

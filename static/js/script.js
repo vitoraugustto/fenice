@@ -86,6 +86,38 @@ window.onload = function () {
   //   })
   // });
 
+  const loginButton = document.getElementById("loginButton");
+  const signinButton = document.getElementById("signinButton");
+
+  const loginForm = document.getElementById("loginForm");
+  const signinForm = document.getElementById("signinForm");
+
+  const overlay = document.getElementById("overlay");
+  const closeButton1 = document.getElementById("closeButton1")
+  const closeButton2 = document.getElementById("closeButton2")
+
+  closeButton1.addEventListener("click", () => {
+    signinForm.style.display = "none";
+    overlay.style.display = "none"
+  });
+
+  closeButton2.addEventListener("click", () => {
+    loginForm.style.display = "none";
+    overlay.style.display = "none"
+
+  });
+
+  loginButton.addEventListener("click", () => {
+    loginForm.style.display = "block";
+    overlay.style.display = "block";
+  });
+
+  signinButton.addEventListener("click", () => {
+    signinForm.style.display = "block";
+    overlay.style.display = "block";
+  });
+
+
   const dominios = [
     "@hotmail.com",
     "@outlook.com",

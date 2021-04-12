@@ -24,12 +24,13 @@
           <div class="menu-drop"> 
             <img src="static/images/user.png" alt="Icone de login">
             <div class="drop-content"> 
-              <a href="login.html">login</a>
-              <a href="cadastro.html">cadastre-se</a> 
+              <ul>
+                <li id="loginButton">logar</li>
+                <li id="signinButton">criar conta</li>
+              </ul>
             </div>
           </div>
-        </form>
-
+        </form> 
         <!-- <div id="menu-desktop">
           <ul>
             <li><a href="#">anéis</a></li> 
@@ -95,6 +96,51 @@
           <button class="button-products styled-button">encomendar</button>
         </div>
       </section>
+      <div id="overlay">
+        <form id="loginForm" class="styled-form" method="POST">
+          <img id="closeButton2" src="static/images/close-button.png">
+          <div class="clear"></div>
+          <img class ="avatar" src="static/images/img_avatar-login.png" alt="Avatar"> 
+        
+          <label for="loginName">Usuário</label>
+          <input id="loginName" class="user-login" type="text" placeholder="Digite o usuário" required>
+
+          <label for="loginPassword">Senha</label>
+          <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
+          <button class="login styled-button" type="submit">entrar</button>
+          <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span>
+        </form>
+
+
+        <form id="signinForm" class="styled-form" method="POST" action="http://18.225.31.219:1880/cliente" >
+          <img id="closeButton1" src="static/images/close-button.png">
+          <div class="clear"></div>
+          <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
+          <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" maxlength="20" required>
+          <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" maxlength="50" required>
+          <input style="width: 87.9%;" autocomplete="nope" name="clientName" id="clientName" type="text" placeholder="Nome" maxlength="45" required>
+
+          <div style="display: inline-block;">
+            <select name="genre" id="genre" required>
+              <option value="" disabled selected hidden>gênero</option>
+              <option value="masculino">masculino</option>
+              <option value="feminino">feminino</option>
+              <option value="outro">outro</option>
+            </select>
+          </div>
+          
+          <input autocomplete="nope" name="docNumber" id="docNumber" type="tel" placeholder="Número do CPF (11 digitos)" maxlength="11" required>
+          <input autocomplete="nope" name="phoneNumber" id="phoneNumber" type="tel" placeholder="Número de telefone" maxlength="11" required>
+          <input autocomplete="nope" name="address" id="address" type="text" placeholder="Endereço" maxlength="25" required>
+          <input class="w50" autocomplete="nope" name="addressNumber" id="addressNumber" type="text" placeholder="Número" maxlength="5" required>
+          <input class="w50" autocomplete="nope" name="addressComplement" id="addressComplement" type="text" placeholder="Complemento" maxlength="25">
+          <input autocomplete="nope" name="cep" id="cep" type="tel" placeholder="CEP" maxlength="8" required>
+          <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" maxlength="10" required>
+          <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" maxlength="10"required>
+
+          <button type="submit" id="form-button">Enviar</button>
+        </form>
+      </div>
     </div>
 
     <footer>
