@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+         
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <title>Fenice Arte & Joia</title>
+  </head>
+  <body class="preload">
+    <header>
+      <div class="header-wrapper">
+        <a href="index.html"><img class="logo" src="static/images/fenicelogo.png"/></a>
+
+        <form class="search-field" method="GET">
+          <input autocomplete="off" class="search" name="search" type="text" placeholder="Pesquisar produtos"/>
+          <input autocomplete="off" type="submit" value="" id="search-submit" class="search-img"/>
+
+          <div class="menu-drop"> 
+            <img src="static/images/user.png" alt="Icone de login">
+            <div class="drop-content"> 
+              <ul>
+                <li id="loginButton">logar</li>
+                <li id="signinButton">criar conta</li>
+              </ul>
+            </div>
+          </div>
+        </form> 
+        <!-- <div id="menu-desktop">
+          <ul>
+            <li><a href="#">anéis</a></li> 
+            <li><a href="#">brincos</a></li>
+            <li><a href="#">colares</a></li>
+            <li><a href="#">acessórios</a></li>
+          </ul>
+        </div> -->
+
+        <div id="menu-mobile">
+          <ul>
+            <li><a href="#">anéis</a></li> 
+            <li><a href="#">brincos</a></li>
+            <li><a href="#">colares</a></li>
+            <li><a href="#">acessórios</a></li>
+          </ul>
+          <img id="menu-hamburguer" src="static/images/menu-hamburguer.png">
+        </div>
+
+      </div>
+      <div class="topbar">
+        <ul>
+          <li><a href="#">sobre nós</a></li>
+          <li><a href="#">produtos</a></li>
+          <li><a href="#">fale conosco</a></li>
+      </div>
+    </header>
+
+    <div class="carousel">
+      <div class="carousel_item carousel_item--visible">
+          <img src="https://images.wallpaperscraft.com/image/forest_trees_fog_110131_1920x1080.jpg">
+      </div>
+      <div class="carousel_item">
+          <img src="https://wallpapershome.com/images/wallpapers/fog-1920x1080-5k-4k-wallpaper-trees-forest-12603.jpg">
+      </div>
+      <div class="carousel_item">
+          <img src="https://papers.co/wallpaper/papers.co-nd57-mountain-fog-nature-view-wood-forest-25-wallpaper.jpg">
+      </div>
+      <div class="carousel_actions">
+          <img src="static/images/arrow.png" id="carousel_button--prev"></img>
+          <img src="static/images/arrow.png" id="carousel_button--next"></img>
+      </div>
+    </div>
+    
+    <div class="container">
+      <section class="trending-products">
+        <div class="single-product">
+          <img id="1" src="static/images/trending1.jpg">
+          <p>Bracelete de Pena - Prata</p>
+          <span>R$ 29,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img id="2" src="static/images/trending2.jpg">
+          <p>Aliança de Noivado - Ouro</p>
+          <span>R$ 1990,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img id="3" src="static/images/trending3.jpg">
+          <p>Anel personalizado</p>
+          <span>R$ 39,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+      </section>
+      <div id="overlay">
+        <form id="loginForm" class="styled-form" method="POST">
+          <img id="closeButton2" src="static/images/close-button.png">
+          <div class="clear"></div>
+          <img class ="avatar" src="static/images/img_avatar-login.png" alt="Avatar"> 
+        
+          <label for="loginName">Usuário</label>
+          <input id="loginName" class="user-login" type="text" placeholder="Digite o usuário" required>
+
+          <label for="loginPassword">Senha</label>
+          <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
+          <button class="login styled-button" type="submit">entrar</button>
+          <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span>
+        </form>
+
+
+        <form id="signinForm" class="styled-form" method="POST" action="http://18.225.31.219:1880/cliente" >
+          <img id="closeButton1" src="static/images/close-button.png">
+          <div class="clear"></div>
+          <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
+          <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" maxlength="20" required>
+          <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" maxlength="50" required>
+          <input style="width: 87.9%;" autocomplete="nope" name="clientName" id="clientName" type="text" placeholder="Nome" maxlength="45" required>
+
+          <div style="display: inline-block;">
+            <select name="genre" id="genre" required>
+              <option value="" disabled selected hidden>gênero</option>
+              <option value="masculino">masculino</option>
+              <option value="feminino">feminino</option>
+              <option value="outro">outro</option>
+            </select>
+          </div>
+          
+          <input autocomplete="nope" name="docNumber" id="docNumber" type="tel" placeholder="Número do CPF (11 digitos)" maxlength="11" required>
+          <input autocomplete="nope" name="phoneNumber" id="phoneNumber" type="tel" placeholder="Número de telefone" maxlength="11" required>
+          <input autocomplete="nope" name="address" id="address" type="text" placeholder="Endereço" maxlength="25" required>
+          <input class="w50" autocomplete="nope" name="addressNumber" id="addressNumber" type="text" placeholder="Número" maxlength="5" required>
+          <input class="w50" autocomplete="nope" name="addressComplement" id="addressComplement" type="text" placeholder="Complemento" maxlength="25">
+          <input autocomplete="nope" name="cep" id="cep" type="tel" placeholder="CEP" maxlength="8" required>
+          <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" maxlength="10" required>
+          <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" maxlength="10"required>
+
+          <button type="submit" id="form-button">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-box">
+        <form class="form-news" action="" method="GET">
+          <span>newsletter</span>
+          <p>Registre-se para receber as últimas notícias de vendas, ofertas, lançamentos e mais...</p>
+          <input autocomplete="off" name="email-news" id="email-news" type="email" placeholder="Seu endereço de email aqui!" maxlength="50" required>
+          <button disabled id="news-button" class="styled-button">registrar-se</button>
+        </form>
+      </div>
+      <div class="footer-box">
+        <span>redes sociais</span>
+        <p>Conecte-se conosco nas redes sociais:</p>
+        <a class="social-media" target="_blank" href="https://www.facebook.com/fenicearteejoias/?pageid=792214191129484&ftentidentifier=1204121783272054&padding=0"><img src="static/images/fb-logo.png"></a>
+        <a class="social-media" target="_blank" href="https://www.instagram.com/fenicearteejoias/"><img src="static/images/insta-logo.png"></a>
+        <a class="social-media" href="#"><img src="static/images/zap-logo.png"></a>
+      </div>
+      <div class="footer-box">
+        <form id="contactForm" class="contact" action="" method="GET">
+          <span>contate-nos</span>
+          <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email" maxlength="50" required>
+          <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..." maxlength="500" required></textarea>
+          <button disabled id="contact-button" class="styled-button">enviar</button>
+        </form>
+      </div>
+    </footer>
+    <div class="dev-bar">
+      <p>Copyright © 2021</p>
+      <p>Todos os direitos reservados.</p>
+      <p>Desenvolvido por RequestSolved!</p>
+      <img src="static/images/dragon.png">
+    </div>
+
+    <script src="static/js/script.js"></script>
+    <script src="static/js/carousel.js"></script>
+
+  </body>
+</html>
