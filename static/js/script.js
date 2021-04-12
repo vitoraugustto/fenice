@@ -12,20 +12,21 @@ window.onload = function () {
   const menuMobile = document.getElementById("menu-mobile");
 
   const sendFormButton = document.getElementById("form-button");
-  const user = document.getElementById("user");
-  const password = document.getElementById("password");
+  const usuario = document.getElementById("usuario");
+  const senha = document.getElementById("senha");
   const email = document.getElementById("email");
   const confirmEmail = document.getElementById("confirmEmail");
-  const name = document.getElementById("name");
-  const phoneNum = document.getElementById("phoneNum");
-  const genre = document.getElementById("genre");
-  const address = document.getElementById("address");
-  const addressNumber = document.getElementById("addressNumber");
-  const addressComplement = document.getElementById("addressComplement");
-  const state = document.getElementById("state");
-  const city = document.getElementById("city");
-  const docType = document.getElementById("docType");
-  const docNumber = document.getElementById("docNumber");
+  const nome = document.getElementById("nome");
+  const telefone = document.getElementById("telefone");
+  const genero = document.getElementById("genero");
+  const cep = document.getElementById("cep");
+  const endereco = document.getElementById("endereco");
+  const enderecoNumero = document.getElementById("enderecoNumero");
+  const enderecoComplemento = document.getElementById("enderecoComplemento");
+  const estado = document.getElementById("estado");
+  const cidade = document.getElementById("cidade");
+  // const tipoDoc = document.getElementById("tipoDoc");
+  const numDoc = document.getElementById("numDoc");
 
   ///////////////////////////////////////////////////////
   function sendForm() {
@@ -34,25 +35,25 @@ window.onload = function () {
 
     var raw = JSON.stringify({
       login: {
-        usuario: user.value,
-        senha: password.value,
+        usuario: usuario.value,
+        senha: senha.value,
       },
       cliente: {
-        nome: name.value,
+        nome: nome.value,
         email: email.value,
-        sexo: genre.value,
-        telefone: phoneNum.value,
+        sexo: genero.value,
+        telefone: telefone.value,
         endereco: {
           CEP: cep.value,
-          logradouro: address.value,
-          numero: addressNumber.value,
-          complemento: addressComplement.value,
-          estado: state.value,
-          cidade: city.value,
+          logradouro: endereco.value,
+          numero: enderecoNumero.value,
+          complemento: enderecoComplemento.value,
+          estado: estado.value,
+          cidade: cidade.value,
         },
         documento: {
-          tipoDocumento: docType.value,
-          numero: docNumber.value,
+          // tipoDocumento: tipoDoc.value,
+          numero: numDoc.value,
         },
       },
     });
@@ -75,17 +76,17 @@ window.onload = function () {
   const singleProduct = [...document.getElementsByClassName("single-product")];
   const buttonProducts = [...document.getElementsByClassName("button-products")];
 
-  singleProduct.forEach((product) => {
-    product.addEventListener("mouseenter", () => {
-      product.style.paddingBottom = "57px";
-    })
-  });
+  // singleProduct.forEach((product) => {
+  //   product.addEventListener("mouseenter", () => {
+  //     product.style.height = "auto";
+  //   })
+  // });
 
-  singleProduct.forEach((product) => {
-    product.addEventListener("mouseout", () => {
-      product.style.paddingBottom = "0";
-    })
-  });
+  // singleProduct.forEach((product) => {
+  //   product.addEventListener("mouseout", () => {
+  //     product.style.height = "470px";
+  //   })
+  // });
 
   const dominios = [
     "@hotmail.com",
@@ -125,20 +126,23 @@ window.onload = function () {
     });
   });
 
-  var isOpen = 0;
-  hamburguer.addEventListener("click", () => {
-    isOpen += 1;
+  if (window.innerWidth <= 570) {
+    var isOpen = 0;
+    hamburguer.addEventListener("click", () => {
+      isOpen += 1;
+  
+      if (isOpen == 1) {
+        menuMobile.style.top = "0px";
+        hamburguer.style.top = "180px";
+      } else {
+        menuMobile.style.top = "-170px";
+        hamburguer.style.top = "10px";
+  
+        isOpen = 0;
+      }
+    });
+  };
 
-    if (isOpen == 1) {
-      menuMobile.style.top = "0px";
-      hamburguer.style.top = "180px";
-    } else {
-      menuMobile.style.top = "-170px";
-      hamburguer.style.top = "10px";
-
-      isOpen = 0;
-    }
-  });
 
   [...document.getElementsByTagName("a")].forEach((a) =>
     a.classList.add("fromRight")
@@ -146,19 +150,6 @@ window.onload = function () {
 
   sendFormButton.addEventListener("click", () => {
     sendForm();
-
-    alert("Informações enviadas.")
-
-    console.log("Evento capturado.");
+    // document.getElementsByClassName("container")[0].reset();
   });
-
-  // docType.addEventListener("change", () => {
-  //   if (docType.value == "cpf") {
-  //     cpf.style.display = "inline-block";
-  //     cnpj.style.display = "none";
-  //   } else {
-  //     cnpj.style.display = "inline-block";
-  //     cpf.style.display = "none";
-  //   }
-  // });
 };

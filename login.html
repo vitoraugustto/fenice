@@ -31,7 +31,7 @@
         </form>
         
       
-        <!-- <div id="efrfdssd
+        <!-- <div id="menu-desktop">
             <li><a href="#">anéis</a></li> 
             <li><a href="#">brincos</a></li>
             <li><a href="#">colares</a></li>
@@ -58,7 +58,7 @@
       </div>
     </header>
 
-    <div class="carousel">
+    <!-- <div class="carousel">
       <div class="carousel_item carousel_item--visible">
           <img src="https://images.wallpaperscraft.com/image/forest_trees_fog_110131_1920x1080.jpg">
       </div>
@@ -72,30 +72,26 @@
           <img src="static/images/arrow.png" id="carousel_button--prev"></img>
           <img src="static/images/arrow.png" id="carousel_button--next"></img>
       </div>
-    </div>
+    </div> -->
     
+    <!-- Tela de login -->
     <div class="container">
-      <section class="trending-products">
-        <div class="single-product">
-          <img id="1" src="static/images/trending1.jpg">
-          <p>Bracelete de Pena - Prata</p>
-          <span>R$ 29,90</span>
-          <button class="button-products styled-button">encomendar</button>
+      <form class="form-login" method="POST">
+        <div class="imgcontainer">
+          <img class ="avatar" src="static/images/img_avatar-login.png" alt="Avatar"> 
         </div>
-        <div class="single-product">
-          <img id="2" src="static/images/trending2.jpg">
-          <p>Aliança de Noivado - Ouro</p>
-          <span>R$ 1990,90</span>
-          <button class="button-products styled-button">encomendar</button>
-        </div>
-        <div class="single-product">
-          <img id="3" src="static/images/trending3.jpg">
-          <p>Anel personalizado</p>
-          <span>R$ 39,90</span>
-          <button class="button-products styled-button">encomendar</button>
-        </div>
-      </section>
+      
+        <label for="nome">Usuário</label>
+        <input class="user-login" type="text" placeholder="Digite o usuário" required>
+  
+        <label for="nome">Senha</label>
+        <input class="password-login" type="password" placeholder="Digite a senha" required>
+  
+        <button class="login styled-button" type="submit">Login</button>
+        <input class="checkbox-login" type="checkbox" checked="checkbox" style="width: auto; display: inline-block" name="remember"><span>Lembrar de mim</span>
+    </form>
     </div>
+
 
     <footer>
       <div class="footer-box">
