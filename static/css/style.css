@@ -278,7 +278,7 @@ header div.menu-drop a {
 
   display: inline-block;
   cursor: pointer;
-  transition: .3s transform ease;
+  transition: 0.3s transform ease;
 }
 
 .menu-drop:hover {
@@ -289,7 +289,7 @@ header div.menu-drop a {
   position: absolute;
   left: -45px;
   z-index: 1;
-  
+
   display: none;
   width: auto;
   padding: 5px 9px;
@@ -310,7 +310,7 @@ header div.menu-drop a {
   padding: 3px;
   border-radius: 3px;
 
-  transition: .3s background-color ease-in;
+  transition: 0.3s background-color ease-in;
 }
 
 .menu-drop ul li:hover {
@@ -352,7 +352,6 @@ header div.topbar ul li {
 header div.topbar ul li:last-child {
   margin-right: 0;
 }
-
 
 /*TOPBAR*/
 
@@ -463,16 +462,104 @@ section.trending-products div.single-product > p {
 section.trending-products div.single-product > span {
   display: block;
 }
-
-/* section.trending-products div.single-product span::after {
-  content: "";
-
-  display: block;
-  width: 1%;
-  height: 1px;
-  background-color: var(--main-color);
-} */
 /*TRENDING PRODUCTS*/
+
+/*CATALOG*/
+section.catalog {
+  margin: 30px 0;
+}
+
+section.catalog div.single-product {
+  display: inline-block;
+  width: 16%;
+  height: auto;
+  overflow: hidden;
+  margin-right: 100px;
+  box-shadow: 2px 2px 8px;
+  padding-bottom: -57px;
+  transition: 0.3s transform ease, 0.3s padding-bottom ease;
+}
+
+section.catalog div.single-product:hover,
+section.catalog div.single-product:focus {
+  background-color: var(--light-gray);
+  transform: scale(1.03);
+}
+
+section.catalog div.single-product:last-child {
+  margin-right: 0;
+}
+
+section.catalog div.single-product > img {
+  width: 100%;
+}
+
+section.catalog div.single-product > p {
+  font-size: 21px;
+}
+
+section.catalog div.single-product > span {
+  display: block;
+}
+
+section.catalog button.styled-button {
+  width: auto;
+}
+
+section.catalog h2 {
+  text-transform: uppercase;
+  font-size: 30px;
+  display: inline-block;
+  border-bottom: 1px solid var(--main-color);
+}
+
+section.catalog div.row {
+  margin: 40px 0;
+}
+/*CATALOG*/
+
+/*ABOUT US*/
+div.aboutUs {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 0;
+  background-color: white;
+  justify-content: center;
+}
+
+div.aboutUs div.h2Wrapper {
+  display: flex;
+  border-right: 1px solid var(--main-color);
+}
+
+div.aboutUs h2 {
+  padding-right: 13px;
+  align-self: center;
+  margin-right: 10px;
+}
+
+div.aboutUs p {
+  display: inline-block;
+  width: 30%;
+  padding: 0 20px;
+  text-align: justify;
+  font-size: 20px;
+}
+
+div.aboutUs p > span {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+div.aboutUs img {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px;
+}
+/*ABOUT US*/
 
 /*FOOTER*/
 footer {
@@ -678,7 +765,7 @@ form.styled-form img.avatar {
   border-radius: 50%;
 }
 
-form.styled-form input[type=checkbox].checkbox-login {
+form.styled-form input[type="checkbox"].checkbox-login {
   position: relative;
   top: 1px;
 
@@ -696,7 +783,7 @@ form#loginForm {
   display: none;
   width: 25%;
   text-align: left;
-  animation: .3s zoom ease;
+  animation: 0.3s zoom ease;
   box-shadow: 2px 2px 8px black;
 }
 
@@ -707,29 +794,29 @@ form#signinForm {
   z-index: 99;
 
   display: none;
-  animation: .3s zoom ease;
+  animation: 0.3s zoom ease;
   box-shadow: 2px 2px 8px black;
 }
 
 #overlay {
-  position:fixed;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index:999;
-  
+  z-index: 999;
+
   display: none;
-  width:100vw;
-  height:100vh;
+  width: 100vw;
+  height: 100vh;
   background-color: black;
-  background-color:rgba(0,0,0,.75)
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
-#closeButton1, 
+#closeButton1,
 #closeButton2 {
   float: right;
   cursor: pointer;
 
-  transition: .1s transform ease;
+  transition: 0.1s transform ease;
 }
 
 #closeButton1:hover,
@@ -737,7 +824,6 @@ form#signinForm {
   transform: scale(1.2);
 }
 /*FORMS*/
-
 
 /*ANIMATIONS*/
 @keyframes zoom {
