@@ -55,7 +55,7 @@
         <ul>
           <li><a href="about-us.html">sobre nós</a></li>
           <li><a href="products.html">produtos</a></li>
-          <li><a href="#">fale conosco</a></li>
+          <li><a id="contactUs">fale conosco</a></li>
       </div>
     </header>
 
@@ -97,17 +97,17 @@
         </div>
       </section>
       <div id="overlay">
-        <form id="loginForm" class="styled-form" method="POST">
+        <form id="loginForm" class="styled-form">
           <img id="closeButton2" src="static/images/close-button.png">
           <div class="clear"></div>
           <img class ="avatar" src="static/images/img_avatar-login.png" alt="Avatar"> 
         
-          <label for="loginName">Usuário</label>
-          <input id="loginName" class="user-login" type="text" placeholder="Digite o usuário" required>
+          <label for="loginUser">Usuário</label>
+          <input id="loginUser" class="user-login" type="text" placeholder="Digite o usuário" required>
 
           <label for="loginPassword">Senha</label>
           <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
-          <button class="login styled-button" type="submit">entrar</button>
+          <button id="login" class="login styled-button" type="submit">entrar</button>
           <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span>
         </form>
 

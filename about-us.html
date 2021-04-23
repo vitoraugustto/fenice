@@ -55,7 +55,7 @@
         <ul>
           <li><a href="#" style="color: black; font-weight: bold;">sobre nós</a></li>
           <li><a href="products.html">produtos</a></li>
-          <li><a href="#">fale conosco</a></li>
+          <li><a id="contactUs">fale conosco</a></li>
       </div>
     </header>
 
@@ -72,7 +72,7 @@
 
           <label for="loginPassword">Senha</label>
           <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
-          <button class="login styled-button" type="submit">entrar</button>
+          <button id="login" class="login styled-button" type="submit">entrar</button>
           <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span>
         </form>
 
@@ -139,7 +139,7 @@
         <a class="social-media" href="#"><img src="static/images/zap-logo.png"></a>
       </div>
       <div class="footer-box">
-        <form id="contactForm" class="contact" action="" method="GET">
+        <form id="contactForm" action="" method="GET">
           <span>contate-nos</span>
           <input autocomplete="off" id="email-contact" name="email-contact" type="email" placeholder="Email" maxlength="50" required>
           <textarea name="message" id="textarea-contact" placeholder="Escreva sua mensagem..." maxlength="500" required></textarea>
@@ -155,7 +155,6 @@
     </div>
 
     <script src="static/js/script.js"></script>
-    <script src="static/js/carousel.js"></script>
 
   </body>
 </html>

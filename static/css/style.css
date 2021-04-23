@@ -654,6 +654,17 @@ footer textarea:hover::placeholder,
 footer textarea:focus::placeholder {
   color: white;
 }
+
+#contactForm {
+  background-color: var(--footer-color);
+  box-shadow: 3px 3px 55px var(--footer-color);
+  border-radius: 10px;
+  transition: 0.2s filter ease-in;
+}
+
+#contactUs {
+  cursor: pointer;
+}
 /*FOOTER*/
 
 /*DEVBAR*/
