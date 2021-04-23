@@ -1,3 +1,3 @@
-# fenice
+# Fenice
 
 # Projeto OPE - Impacta
