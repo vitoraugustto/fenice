@@ -17,79 +17,148 @@ const user = document.getElementById("user");
 const city = document.getElementById("city");
 const cep = document.getElementById("cep");
 
+// function sendForm() {
+//   var myHeaders = new Headers();
+//   myHeaders.append("Content-Type", "application/json");
+
+//   var raw = JSON.stringify({
+//     login: {
+//       usuario: user.value,
+//       senha: password.value,
+//     },
+//     cliente: {
+//       nome: clientName.value,
+//       email: clientEmail.value,
+//       sexo: clientGenre.value,
+//       telefone: phoneNumber.value,
+//       endereco: {
+//         CEP: cep.value,
+//         logradouro: address.value,
+//         numero: addressNumber.value,
+//         complemento: addressComplement.value,
+//         estado: state.value,
+//         cidade: city.value,
+//       },
+//       documento: {
+//         numero: docNumber.value,
+//       },
+//     },
+//   });
+
+//   var requestOptions = {
+//     method: "POST",
+//     headers: myHeaders,
+//     body: raw,
+//     redirect: "follow",
+//   };
+
+//   fetch("http://18.225.31.219:1880/cliente", requestOptions)
+//     .then((response) => response.text())
+//     .then((result) => console.log(result))
+//     .catch((error) => console.log("error", error));
+// }
+
 function sendForm() {
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-
-  var raw = JSON.stringify({
-    login: {
-      usuario: user.value,
-      senha: password.value,
-    },
-    cliente: {
-      nome: clientName.value,
-      email: clientEmail.value,
-      sexo: clientGenre.value,
-      telefone: phoneNumber.value,
-      endereco: {
-        CEP: cep.value,
-        logradouro: address.value,
-        numero: addressNumber.value,
-        complemento: addressComplement.value,
-        estado: state.value,
-        cidade: city.value,
-      },
-      documento: {
-        numero: docNumber.value,
-      },
-    },
-  });
-
-  var requestOptions = {
+  var settings = {
+    url: "http://18.225.31.219:1880/cliente",
     method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
+    timeout: 0,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify({
+      login: {
+        usuario: user.value,
+        senha: password.value,
+      },
+      cliente: {
+        nome: clientName.value,
+        email: clientEmail.value,
+        sexo: clientGenre.value,
+        telefone: phoneNumber.value,
+        endereco: {
+          CEP: cep.value,
+          logradouro: address.value,
+          numero: addressNumber.value,
+          complemento: addressComplement.value,
+          estado: state.value,
+          cidade: city.value,
+        },
+        documento: {
+          numero: docNumber.value,
+        },
+      },
+    }),
   };
 
-  fetch("http://18.225.31.219:1880/cliente", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 }
+
+sendFormButton.addEventListener("click", () => {
+  sendForm();
+});
+
 ///////////////////////////////////////////////////////
 //Realiza Login
-const loginUser = document.getElementById("loginName");
+const loginUser = document.getElementById("loginUser");
 const loginPassword = document.getElementById("loginPassword");
 const login = document.getElementById("login");
 
+// function Login() {
+//   var myHeaders = new Headers();
+//   myHeaders.append("Content-Type", "application/json");
+
+//   var raw = JSON.stringify({
+//     usuario: loginUser.value,
+//     senha: loginPassword.value,
+//   });
+
+//   var requestOptions = {
+//     method: "GET",
+//     headers: myHeaders,
+//     body: raw,
+//     redirect: "follow",
+//   };
+
+//   fetch("http://18.225.31.219:1880/login", requestOptions)
+//     .then((response) => response.text())
+//     .then((result) => console.log(result))
+//     .catch((error) => console.log("error", error));
+// }
+
+function Login() {
+  var settings = {
+    url: "http://18.225.31.219:1880/login",
+    method: "GET",
+    timeout: 0,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      usuario: loginUser.value,
+      senha: loginPassword.value,
+    },
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response.statusCode);
+
+    if (response.statusCode == 200) {
+      window.location.href = "products.html";
+    } else {
+      console.log("not");
+    }
+  });
+}
+
+const contactUs = document.getElementById("contactUs");
 login.addEventListener("click", () => {
   Login();
 });
-
-function Login() {
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-
-  var raw = JSON.stringify({
-    usuario: loginUser.value,
-    senha: loginPassword.value,
-  });
-
-  var requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
-  };
-
-  fetch("http://18.225.31.219:1880/login", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
-}
 ///////////////////////////////////////////////////////
-const contactUs = document.getElementById("contactUs");
+
 const contactForm = document.getElementById("contactForm");
 
 contactUs.addEventListener("click", () => {
@@ -205,6 +274,29 @@ if (window.innerWidth <= 570) {
   a.classList.add("fromRight")
 );
 
-sendFormButton.addEventListener("click", () => {
-  sendForm();
-});
+var addToCartButtons = document.getElementsByClassName("button-products");
+for (var i = 0; i < addToCartButtons.length; i++) {
+  var button = addToCartButtons[i];
+  button.addEventListener("click", addOrder);
+}
+
+function addOrder(event) {
+  var button = event.target;
+  var shopItem = button.parentElement;
+  var name = shopItem.getElementsByClassName("product-name")[0].innerText;
+  var price = shopItem.getElementsByClassName("product-price")[0].innerText;
+  var imageSrc = shopItem.getElementsByClassName("product-image")[0].src;
+
+  localStorage.setItem("Product Name", name);
+  localStorage.setItem("Product Price", price);
+  localStorage.setItem("Product Image", imageSrc);
+
+  console.log(name, price, imageSrc);
+  alert("Item adicionado ao formulário de encomenda!");
+}
+
+if (window.location.pathname == "/order.html") {
+  var textarea = document.getElementById("textarea");
+
+  textarea.value = "Olá, eu gostei dos seguintes produtos: Ainda não tá feito.";
+}

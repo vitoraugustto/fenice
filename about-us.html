@@ -56,6 +56,7 @@
           <li><a href="#" style="color: black; font-weight: bold;">sobre nós</a></li>
           <li><a href="products.html">produtos</a></li>
           <li><a id="contactUs">fale conosco</a></li>
+          <li><a href="order.html">encomenda</a></li>
       </div>
     </header>
 
@@ -73,20 +74,20 @@
           <label for="loginPassword">Senha</label>
           <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
           <button id="login" class="login styled-button" type="submit">entrar</button>
-          <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span>
+          <!-- <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span> -->
         </form>
 
 
-        <form id="signinForm" class="styled-form" method="POST" action="http://18.225.31.219:1880/cliente" >
+        <form id="signinForm" class="styled-form" method="POST" action="http://18.225.31.219:1880/cliente">
           <img id="closeButton1" src="static/images/close-button.png">
           <div class="clear"></div>
           <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
           <input class="" autocomplete="nope" name="password" id="password" type="password" placeholder="Senha" maxlength="20" required>
-          <input class="" autocomplete="nope" name="email" id="email" type="email" placeholder="Email" maxlength="50" required>
+          <input class="" autocomplete="nope" name="email" id="clientEmail" type="email" placeholder="Email" maxlength="50" required>
           <input style="width: 87.9%;" autocomplete="nope" name="clientName" id="clientName" type="text" placeholder="Nome" maxlength="45" required>
 
           <div style="display: inline-block;">
-            <select name="genre" id="genre" required>
+            <select name="genre" id="clientGenre" required>
               <option value="" disabled selected hidden>gênero</option>
               <option value="masculino">masculino</option>
               <option value="feminino">feminino</option>
