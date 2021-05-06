@@ -45,4 +45,4 @@ function previousSlide() {
   updateSlidePosition();
 }
 
-carouselAutoPlay = setInterval(nextSlide, 6000);
+setInterval(nextSlide, 6000);

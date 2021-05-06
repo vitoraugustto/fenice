@@ -9,6 +9,7 @@
          
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/cart.css">
 
     <title>Fenice Arte & Joia</title>
   </head>
@@ -106,6 +107,7 @@
             <button class="button-products styled-button">encomendar</button>
           </div>      
         </div> <!-- row -->
+
       </section>
       <div id="overlay">
         <form id="loginForm" class="styled-form" method="POST">
@@ -156,6 +158,24 @@
 
     </div>
 
+    <section id="container-cart">
+      <div class="cart-img-wrapper">
+        <img id="cart-img" src="static/images/cart.png" alt="carrinho">
+      </div>
+      <div class="cart-row">
+          <span class="cart-item cart-header cart-column">item</span>
+          <span class="cart-price cart-header cart-column">preço</span>
+          <span class="cart-quantity cart-header cart-column">quantidade</span>
+      </div>
+      <div class="cart-items">
+      </div>
+      <div class="cart-total">
+          <strong class="cart-total-title">Total:</strong>
+          <span class="cart-total-price">$0</span>
+      </div>
+      <button class="styled-button" id="btn-purchase" type="button">ENCOMENDAR!</button>
+    </section>
+
     <footer>
       <div class="footer-box">
         <form class="form-news" action="" method="GET">
@@ -189,6 +209,6 @@
     </div>
 
     <script src="static/js/script.js"></script>
-
+    <script src="static/js/cart.js"></script>
   </body>
 </html>

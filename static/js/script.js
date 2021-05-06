@@ -274,29 +274,42 @@ if (window.innerWidth <= 570) {
   a.classList.add("fromRight")
 );
 
-var addToCartButtons = document.getElementsByClassName("button-products");
-for (var i = 0; i < addToCartButtons.length; i++) {
-  var button = addToCartButtons[i];
-  button.addEventListener("click", addOrder);
+function cart() {
+  var isOpen = false;
+
+  const containerCart = document.getElementById("container-cart");
+  function openCloseCart() {
+    if (isOpen == false) {
+      containerCart.style.left = "0px";
+
+      isOpen = true;
+    } else {
+      containerCart.style.left = "-567px";
+
+      isOpen = false;
+    }
+  }
+
+  const cartImg = document.getElementById("cart-img");
+  cartImg.addEventListener("click", openCloseCart);
+
+  const addToCartButtons = document.getElementsByClassName("button-products");
+  for (var i = 0; i < addToCartButtons.length; i++) {
+    var button = addToCartButtons[i];
+    button.addEventListener("click", () => {
+      containerCart.style.left = "0px";
+
+      isOpen = true;
+    });
+  }
+
+  const purchaseButton = document.getElementById("btn-purchase");
+
+  purchaseButton.addEventListener("click", () => {
+    containerCart.style.left = "-567px";
+
+    isOpen = false;
+  });
 }
 
-function addOrder(event) {
-  var button = event.target;
-  var shopItem = button.parentElement;
-  var name = shopItem.getElementsByClassName("product-name")[0].innerText;
-  var price = shopItem.getElementsByClassName("product-price")[0].innerText;
-  var imageSrc = shopItem.getElementsByClassName("product-image")[0].src;
-
-  localStorage.setItem("Product Name", name);
-  localStorage.setItem("Product Price", price);
-  localStorage.setItem("Product Image", imageSrc);
-
-  console.log(name, price, imageSrc);
-  alert("Item adicionado ao formulário de encomenda!");
-}
-
-if (window.location.pathname == "/order.html") {
-  var textarea = document.getElementById("textarea");
-
-  textarea.value = "Olá, eu gostei dos seguintes produtos: Ainda não tá feito.";
-}
+cart();
