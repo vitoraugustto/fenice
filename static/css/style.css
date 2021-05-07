@@ -490,6 +490,7 @@ section.catalog div.single-product:last-child {
 }
 
 section.catalog div.single-product > img {
+  height: 304px;
   width: 100%;
 }
 

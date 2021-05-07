@@ -30,7 +30,7 @@ function ready() {
 
 function purchaseClicked() {
   alert("Os itens foram enviados para Encomenda!");
-  var cartItems = document.getElementsByClassName("cart-items")[0];
+  var cartItems = document.getElementById("cart-items");
   while (cartItems.hasChildNodes()) {
     cartItems.removeChild(cartItems.firstChild);
   }
@@ -64,7 +64,7 @@ function addToCartClicked(event) {
 function addItemToCart(title, price, imageSrc) {
   var cartRow = document.createElement("div");
   cartRow.classList.add("cart-row");
-  var cartItems = document.getElementsByClassName("cart-items")[0];
+  var cartItems = document.getElementById("cart-items");
   var cartItemNames = cartItems.getElementsByClassName("cart-item-title");
   for (var i = 0; i < cartItemNames.length; i++) {
     if (cartItemNames[i].innerText == title) {
@@ -77,7 +77,7 @@ function addItemToCart(title, price, imageSrc) {
           <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
           <span class="cart-item-title">${title}</span>
       </div>
-      <span class="cart-price cart-column">${price}</span>
+      <span class="cart-price cart-item-price cart-column">${price}</span>
       <div class="cart-quantity cart-column">
           <input class="cart-quantity-input" type="number" value="1">
           <button class="styled-button btn-danger" type="button">REMOVER</button>
@@ -93,7 +93,7 @@ function addItemToCart(title, price, imageSrc) {
 }
 
 function updateCartTotal() {
-  var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+  var cartItemContainer = document.getElementById("cart-items");
   var cartRows = cartItemContainer.getElementsByClassName("cart-row");
   var total = 0;
   for (var i = 0; i < cartRows.length; i++) {
@@ -107,6 +107,5 @@ function updateCartTotal() {
     total = total + price * quantity;
   }
   total = Math.round(total * 100) / 100;
-  document.getElementsByClassName("cart-total-price")[0].innerText =
-    "R$" + total;
+  document.getElementById("cart-total-price").innerText = "R$" + total;
 }

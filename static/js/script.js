@@ -129,6 +129,8 @@ const login = document.getElementById("login");
 // }
 
 function Login() {
+  console.log("OI GENTE");
+
   var settings = {
     url: "http://18.225.31.219:1880/login",
     method: "GET",
@@ -154,6 +156,7 @@ function Login() {
 }
 
 const contactUs = document.getElementById("contactUs");
+
 login.addEventListener("click", () => {
   Login();
 });
@@ -274,6 +277,9 @@ if (window.innerWidth <= 570) {
   a.classList.add("fromRight")
 );
 
+const purchaseButton = document.getElementById("btn-purchase");
+const addToCartButtons = document.getElementsByClassName("button-products");
+
 function cart() {
   var isOpen = false;
 
@@ -293,7 +299,6 @@ function cart() {
   const cartImg = document.getElementById("cart-img");
   cartImg.addEventListener("click", openCloseCart);
 
-  const addToCartButtons = document.getElementsByClassName("button-products");
   for (var i = 0; i < addToCartButtons.length; i++) {
     var button = addToCartButtons[i];
     button.addEventListener("click", () => {
@@ -303,8 +308,6 @@ function cart() {
     });
   }
 
-  const purchaseButton = document.getElementById("btn-purchase");
-
   purchaseButton.addEventListener("click", () => {
     containerCart.style.left = "-567px";
 
@@ -312,4 +315,33 @@ function cart() {
   });
 }
 
-cart();
+const cartItemTitle = document.getElementsByClassName("cart-item-title");
+const cartItemPrice = document.getElementsByClassName("cart-item-price");
+
+if (window.location.pathname == "/products.html") {
+  cart();
+
+  purchaseButton.addEventListener("click", () => {
+    var priceAndNames = "";
+
+    for (var i = 0; i < cartItemTitle.length; i++) {
+      priceAndNames +=
+        cartItemTitle[i].innerText + " " + cartItemPrice[i].innerText + "\n";
+    }
+
+    const cartTotalPrice = document.getElementById("cart-total-price")
+      .innerText;
+
+    localStorage.setItem("Produtos", priceAndNames);
+    localStorage.setItem("Valor total", cartTotalPrice);
+  });
+}
+
+if (window.location.pathname == "/order.html") {
+  const textArea = document.getElementById("textarea");
+  textArea.value =
+    "Olá, eu gostei destes produtos: \n \n" +
+    localStorage.getItem("Produtos") +
+    "\n \nTotal: " +
+    localStorage.getItem("Valor total");
+}
