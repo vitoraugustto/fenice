@@ -17,47 +17,6 @@ const user = document.getElementById("user");
 const city = document.getElementById("city");
 const cep = document.getElementById("cep");
 
-// function sendForm() {
-//   var myHeaders = new Headers();
-//   myHeaders.append("Content-Type", "application/json");
-
-//   var raw = JSON.stringify({
-//     login: {
-//       usuario: user.value,
-//       senha: password.value,
-//     },
-//     cliente: {
-//       nome: clientName.value,
-//       email: clientEmail.value,
-//       sexo: clientGenre.value,
-//       telefone: phoneNumber.value,
-//       endereco: {
-//         CEP: cep.value,
-//         logradouro: address.value,
-//         numero: addressNumber.value,
-//         complemento: addressComplement.value,
-//         estado: state.value,
-//         cidade: city.value,
-//       },
-//       documento: {
-//         numero: docNumber.value,
-//       },
-//     },
-//   });
-
-//   var requestOptions = {
-//     method: "POST",
-//     headers: myHeaders,
-//     body: raw,
-//     redirect: "follow",
-//   };
-
-//   fetch("http://18.225.31.219:1880/cliente", requestOptions)
-//     .then((response) => response.text())
-//     .then((result) => console.log(result))
-//     .catch((error) => console.log("error", error));
-// }
-
 function sendForm() {
   var settings = {
     url: "http://18.225.31.219:1880/cliente",
@@ -100,33 +59,10 @@ sendFormButton.addEventListener("click", () => {
   sendForm();
 });
 
-///////////////////////////////////////////////////////
-//Realiza Login
 const loginUser = document.getElementById("loginUser");
 const loginPassword = document.getElementById("loginPassword");
 const login = document.getElementById("login");
 
-// function Login() {
-//   var myHeaders = new Headers();
-//   myHeaders.append("Content-Type", "application/json");
-
-//   var raw = JSON.stringify({
-//     usuario: loginUser.value,
-//     senha: loginPassword.value,
-//   });
-
-//   var requestOptions = {
-//     method: "GET",
-//     headers: myHeaders,
-//     body: raw,
-//     redirect: "follow",
-//   };
-
-//   fetch("http://18.225.31.219:1880/login", requestOptions)
-//     .then((response) => response.text())
-//     .then((result) => console.log(result))
-//     .catch((error) => console.log("error", error));
-// }
 
 function Login() {
   console.log("OI GENTE");
@@ -160,7 +96,6 @@ const contactUs = document.getElementById("contactUs");
 login.addEventListener("click", () => {
   Login();
 });
-///////////////////////////////////////////////////////
 
 const contactForm = document.getElementById("contactForm");
 
@@ -318,7 +253,7 @@ function cart() {
 const cartItemTitle = document.getElementsByClassName("cart-item-title");
 const cartItemPrice = document.getElementsByClassName("cart-item-price");
 
-if (window.location.pathname == "/products.html") {
+if (window.location.pathname == "/fenice/products.html") {
   cart();
 
   purchaseButton.addEventListener("click", () => {
@@ -337,7 +272,7 @@ if (window.location.pathname == "/products.html") {
   });
 }
 
-if (window.location.pathname == "/order.html") {
+if (window.location.pathname == "/fenice/order.html") {
   const textArea = document.getElementById("textarea");
   textArea.value =
     "Olá, eu gostei destes produtos: \n \n" +
