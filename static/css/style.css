@@ -114,6 +114,10 @@ input[type="number"] {
   clear: both;
 }
 
+div.row {
+  display: block;
+}
+
 /*SCROLLBAR*/
 ::-webkit-scrollbar {
   width: 17px;
@@ -475,7 +479,6 @@ section.catalog div.single-product {
   overflow: hidden;
   margin-right: 100px;
   box-shadow: 2px 2px 8px;
-  padding-bottom: -57px;
   transition: 0.3s transform ease, 0.3s padding-bottom ease;
 }
 
@@ -490,7 +493,7 @@ section.catalog div.single-product:last-child {
 }
 
 section.catalog div.single-product > img {
-  height: 304px;
+  max-height: 304px;
   width: 100%;
 }
 
@@ -798,7 +801,7 @@ form#loginForm {
   box-shadow: 2px 2px 8px black;
 }
 
-form#signinForm {
+form#signupForm {
   position: fixed;
   top: 12%;
   left: 24.9%;
@@ -841,7 +844,7 @@ form#signinForm {
   background-color: var(--footer-color);
   display: inline-block;
   width: 100%;
-  height: 250px;
+  height: 170px;
 }
 
 form.order-form {
@@ -871,6 +874,32 @@ form.order-form {
 
   header div.header-wrapper {
     max-width: 1150px;
+  }
+
+  section.catalog div.single-product {
+    width: 16%;
+    margin-right: 70px;
+    max-height: 324px;
+  }
+
+  section.catalog div.single-product > img {
+    max-height: 210px;
+  }
+
+  section.catalog div.single-product > p {
+    font-size: 15px;
+  }
+
+  section.catalog div.single-product > span {
+    font-size: 14px;
+  }
+
+  form#signupForm {
+    top: 5%;
+  }
+
+  form.order-form {
+    width: 40%;
   }
 }
 
