@@ -18,20 +18,20 @@
       <div class="header-wrapper">
         <a href="index.html"><img class="logo" src="static/images/fenicelogo.png"/></a>
 
-        <form class="search-field" method="GET">
+        <!-- <form class="search-field" method="GET">
           <input autocomplete="off" class="search" name="search" type="text" placeholder="Pesquisar produtos"/>
           <input autocomplete="off" type="submit" value="" id="search-submit" class="search-img"/>
+        </form>  -->
 
-          <div class="menu-drop"> 
-            <img src="static/images/user.png" alt="Icone de login">
-            <div class="drop-content"> 
-              <ul>
-                <li id="loginButton">logar</li>
-                <li id="signinButton">criar conta</li>
-              </ul>
-            </div>
+        <div class="menu-drop"> 
+          <img src="static/images/user.png" alt="Icone de login">
+          <div class="drop-content"> 
+            <ul>
+              <li id="loginButton">logar</li>
+              <li id="signupButton">criar conta</li>
+            </ul>
           </div>
-        </form> 
+        </div>
         <!-- <div id="menu-desktop">
           <ul>
             <li><a href="#">anéis</a></li> 
@@ -57,7 +57,7 @@
           <li><a href="about-us.html">sobre nós</a></li>
           <li><a href="#" style="color: black; font-weight: bold;" >produtos</a></li>
           <li><a id="contactUs">fale conosco</a></li>
-          <li><a href="order.html">encomenda</a></li>
+          <li><a id="order" href="order.html">encomenda</a></li>
       </div>
 
     </header>
@@ -81,103 +81,102 @@
     <div class="container">
       <section class="catalog">
         <h2>catálogo de produtos</h2>
-        <div class="row" style="display: block;">
-          <div class="single-product">
-            <img class="product-image" src="static/images/trending1.jpg">
-            <p class="product-name">Bracelete de Pena - Prata</p>
-            <span class="product-price">R$ 29,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/trending2.jpg">
-            <p class="product-name">Aliança de Noivado - Ouro</p>
-            <span class="product-price">R$ 1990,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/trending3.jpg">
-            <p class="product-name">Anel personalizado</p>
-            <span class="product-price">R$ 39,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/aneis_com_pedra.png">
-            <p class="product-name">Aneis com Pedra</p>
-            <span class="product-price">R$ 299,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>      
-        </div> <!-- row -->
-        <div class="row" style="display: block;">
-          <div class="single-product">
-            <img class="product-image" src="static/images/vaso_mini_anfora_miçanga.png">
-            <p class="product-name">Mini Vaso de Pedras Ânfora</p>
-            <span class="product-price">R$ 49,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/vaso_mini_coral.png">
-            <p class="product-name">Mini Vaso Coral</p>
-            <span class="product-price">R$ 49,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/pingentes.png">
-            <p class="product-name">Tempero Bahiano</p>
-            <span class="product-price">R$ 19,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/par_alianca_ouro.png">
-            <p class="product-name">Par de Alianças - Ouro</p>
-            <span class="product-price">R$ 1999,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>      
-        </div> <!-- row -->
-        <div class="row" style="display: block;">
-          <div class="single-product">
-            <img class="product-image" src="static/images/vaso_mini_ametista.png">
-            <p class="product-name">Mini Vaso de Ametistas</p>
-            <span class="product-price">R$ 49,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/par_alianca_prata.png">
-            <p class="product-name">Par de Alianças - Prata</p>
-            <span class="product-price">R$ 1990,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/brinco_de_pena.png">
-            <p class="product-name">Brinco de Pena - Prata</p>
-            <span class="product-price">R$ 39,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>
-          <div class="single-product">
-            <img class="product-image" src="static/images/anel_pena.png">
-            <p class="product-name">Aneis Pena</p>
-            <span class="product-price">R$ 299,90</span>
-            <button class="button-products styled-button">encomendar</button>
-          </div>      
-        </div> <!-- row -->
-
+        <div class="single-product">
+          <img class="product-image" src="static/images/trending1.jpg">
+          <p class="product-name">Bracelete de Pena - Prata</p>
+          <span class="product-price">R$ 29,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/trending2.jpg">
+          <p class="product-name">Aliança de Noivado - Ouro</p>
+          <span class="product-price">R$ 1990,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/trending3.jpg">
+          <p class="product-name">Anel personalizado</p>
+          <span class="product-price">R$ 39,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/aneis_com_pedra.png">
+          <p class="product-name">Aneis com Pedra</p>
+          <span class="product-price">R$ 299,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>      
+        <div class="single-product">
+          <img class="product-image" src="static/images/vaso_mini_anfora_miçanga.png">
+          <p class="product-name">Mini Vaso de Pedras Ânfora</p>
+          <span class="product-price">R$ 49,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/vaso_mini_coral.png">
+          <p class="product-name">Mini Vaso Coral</p>
+          <span class="product-price">R$ 49,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/pingentes.png">
+          <p class="product-name">Tempero Baiano</p>
+          <span class="product-price">R$ 19,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/par_alianca_ouro.png">
+          <p class="product-name">Par de Alianças - Ouro</p>
+          <span class="product-price">R$ 1999,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>      
+        <div class="single-product">
+          <img class="product-image" src="static/images/vaso_mini_ametista.png">
+          <p class="product-name">Mini Vaso de Ametistas</p>
+          <span class="product-price">R$ 49,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/par_alianca_prata.png">
+          <p class="product-name">Par de Alianças - Prata</p>
+          <span class="product-price">R$ 1990,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/brinco_de_pena.png">
+          <p class="product-name">Brinco de Pena - Prata</p>
+          <span class="product-price">R$ 39,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>
+        <div class="single-product">
+          <img class="product-image" src="static/images/anel_pena.png">
+          <p class="product-name">Aneis Pena</p>
+          <span class="product-price">R$ 299,90</span>
+          <button class="button-products styled-button">encomendar</button>
+        </div>      
       </section>
+
+      <div id="added-to-cart">
+        <p>Produto adicionado ao carrinho!</p>
+        <button id="button-product-added" class="styled-button">OK</button>
+      </div>
+
       <div id="overlay">
-        <form id="loginForm" class="styled-form" method="POST">
+        <form id="loginForm" class="styled-form" method="GET">
           <img id="closeButton2" src="static/images/close-button.png">
           <div class="clear"></div>
           <img class ="avatar" src="static/images/img_avatar-login.png" alt="Avatar"> 
         
-          <label for="loginName">Usuário</label>
-          <input id="loginName" class="user-login" type="text" placeholder="Digite o usuário" required>
+          <label for="loginUser">Usuário</label>
+          <input id="loginUser" class="user-login" type="text" placeholder="Digite o usuário" required>
 
           <label for="loginPassword">Senha</label>
           <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
-          <button id="login" class="login styled-button" type="submit">entrar</button>
+          <button id="login" class="login styled-button" type="button">entrar</button>
           <!-- <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span> -->
         </form>
 
 
-        <form id="signinForm" class="styled-form" method="POST" action="http://18.225.31.219:1880/cliente">
+        <form id="signupForm" class="styled-form" method="POST">
           <img id="closeButton1" src="static/images/close-button.png">
           <div class="clear"></div>
           <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
@@ -203,11 +202,9 @@
           <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" maxlength="10" required>
           <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" maxlength="10"required>
 
-          <button type="submit" id="form-button">Enviar</button>
+          <button type="button" id="form-button">Enviar</button>
         </form>
       </div>
-
-
     </div>
 
     <section id="container-cart">
@@ -261,6 +258,10 @@
     </div>
 
     <script src="static/js/script.js"></script>
-    <script src="static/js/cart.js"></script>
+    <!-- <script src="static/js/cart.js"></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
   </body>
 </html>

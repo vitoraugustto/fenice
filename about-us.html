@@ -17,20 +17,19 @@
       <div class="header-wrapper">
         <a href="index.html"><img class="logo" src="static/images/fenicelogo.png"/></a>
 
-        <form class="search-field" method="GET">
+        <!-- <form class="search-field" method="GET">
           <input autocomplete="off" class="search" name="search" type="text" placeholder="Pesquisar produtos"/>
           <input autocomplete="off" type="submit" value="" id="search-submit" class="search-img"/>
-
-          <div class="menu-drop"> 
-            <img src="static/images/user.png" alt="Icone de login">
-            <div class="drop-content"> 
-              <ul>
-                <li id="loginButton">logar</li>
-                <li id="signinButton">criar conta</li>
-              </ul>
-            </div>
+        </form>  -->
+        <div class="menu-drop"> 
+          <img src="static/images/user.png" alt="Icone de login">
+          <div class="drop-content"> 
+            <ul>
+              <li id="loginButton">logar</li>
+              <li id="signupButton">criar conta</li>
+            </ul>
           </div>
-        </form> 
+        </div>
         <!-- <div id="menu-desktop">
           <ul>
             <li><a href="#">anéis</a></li> 
@@ -56,29 +55,29 @@
           <li><a href="#" style="color: black; font-weight: bold;">sobre nós</a></li>
           <li><a href="products.html">produtos</a></li>
           <li><a id="contactUs">fale conosco</a></li>
-          <li><a href="order.html">encomenda</a></li>
+          <li><a id="order" href="order.html">encomenda</a></li>
       </div>
     </header>
 
     <div class="container">
       
       <div id="overlay">
-        <form id="loginForm" class="styled-form" method="POST">
+        <form id="loginForm" class="styled-form" method="GET">
           <img id="closeButton2" src="static/images/close-button.png">
           <div class="clear"></div>
           <img class ="avatar" src="static/images/img_avatar-login.png" alt="Avatar"> 
         
-          <label for="loginName">Usuário</label>
-          <input id="loginName" class="user-login" type="text" placeholder="Digite o usuário" required>
+          <label for="loginUser">Usuário</label>
+          <input id="loginUser" class="user-login" type="text" placeholder="Digite o usuário" required>
 
           <label for="loginPassword">Senha</label>
           <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
-          <button id="login" class="login styled-button" type="submit">entrar</button>
+          <button id="login" class="login styled-button" type="button">entrar</button>
           <!-- <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span> -->
         </form>
 
 
-        <form id="signinForm" class="styled-form" method="POST" action="http://18.225.31.219:1880/cliente">
+        <form id="signupForm" class="styled-form" method="POST">
           <img id="closeButton1" src="static/images/close-button.png">
           <div class="clear"></div>
           <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
@@ -104,7 +103,7 @@
           <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" maxlength="10" required>
           <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" maxlength="10"required>
 
-          <button type="submit" id="form-button">Enviar</button>
+          <button type="button" id="form-button">Enviar</button>
         </form>
       </div>
 
@@ -156,6 +155,10 @@
     </div>
 
     <script src="static/js/script.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
 
   </body>
 </html>

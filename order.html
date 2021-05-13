@@ -18,20 +18,20 @@
       <div class="header-wrapper">
         <a href="index.html"><img class="logo" src="static/images/fenicelogo.png"/></a>
 
-        <form class="search-field" method="GET">
+        <!-- <form class="search-field" method="GET">
           <input autocomplete="off" class="search" name="search" type="text" placeholder="Pesquisar produtos"/>
           <input autocomplete="off" type="submit" value="" id="search-submit" class="search-img"/>
+        </form>  -->
 
-          <div class="menu-drop"> 
-            <img src="static/images/user.png" alt="Icone de login">
-            <div class="drop-content"> 
-              <ul>
-                <li id="loginButton">logar</li>
-                <li id="signinButton">criar conta</li>
-              </ul>
-            </div>
+        <div class="menu-drop"> 
+          <img src="static/images/user.png" alt="Icone de login">
+          <div class="drop-content"> 
+            <ul>
+              <li id="loginButton">logar</li>
+              <li id="signupButton">criar conta</li>
+            </ul>
           </div>
-        </form> 
+        </div>
         <!-- <div id="menu-desktop">
           <ul>
             <li><a href="#">anéis</a></li> 
@@ -57,15 +57,16 @@
           <li><a href="about-us.html">sobre nós</a></li>
           <li><a href="products.html">produtos</a></li>
           <li><a id="contactUs">fale conosco</a></li>
-          <li><a href="order.html" style="color: black; font-weight: bold;">encomenda</a></li>
+          <li><a id="order" href="order.html" style="color: black; font-weight: bold;">encomenda</a></li>
       </div>
     </header>
     
     <div class="container">
-      <form class="styled-form order-form">
-        <input type="email" readonly value="emailpessoa@hotmail.com">
-        <textarea id="textarea"></textarea>
-        <button class="styled-button">Enviar minha encomenda!</button>
+      <form class="styled-form order-form" method="POST">
+        <input type="email" name="clientOrderEmail" id="clientOrderEmail" readonly value="">
+        <textarea name="order" id="productsOrder" readonly></textarea>
+        <textarea name="client-message" id="clientMessage" placeholder="Digite sua mensagem aqui..."></textarea>
+        <button type="button" id="buttonOrder" class="styled-button">Enviar minha encomenda!</button>
       </form>
 
       <div id="overlay">
@@ -79,12 +80,12 @@
 
           <label for="loginPassword">Senha</label>
           <input id="loginPassword" class="password-login" type="password" placeholder="Digite a senha" required>
-          <button id="login" class="login styled-button" type="submit">entrar</button>
+          <button id="login" class="login styled-button" type="button">entrar</button>
           <!-- <input class="checkbox-login" type="checkbox" checked="checkbox" name="remember"><span>Lembrar de mim</span> -->
         </form>
 
 
-        <form id="signinForm" class="styled-form" method="POST">
+        <form id="signupForm" class="styled-form" method="POST">
           <img id="closeButton1" src="static/images/close-button.png">
           <div class="clear"></div>
           <input class="" autocomplete="nope" name="user" id="user" type="text" placeholder="Usuário" maxlength="20" required>
@@ -110,7 +111,7 @@
           <input autocomplete="nope" name="state" id="state" type="text" placeholder="Estado" maxlength="10" required>
           <input autocomplete="nope" name="city" id="city" type="text" placeholder="Cidade" maxlength="10"required>
 
-          <button type="submit" id="form-button">Enviar</button>
+          <button type="button" id="form-button">Enviar</button>
         </form>
       </div>
     </div>

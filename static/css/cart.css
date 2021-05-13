@@ -3,6 +3,7 @@
   top: 0;
   left: -567px;
   z-index: 3;
+  overflow-y: auto;
 
   height: 100%;
   padding: 10px;
@@ -10,6 +11,16 @@
   background-color: var(--devbar-color);
   box-shadow: 2px 2px 8px rgb(80, 80, 80);
   transition: 0.3s left ease-in-out;
+}
+
+#container-cart::-webkit-scrollbar {
+  width: 17px;
+}
+
+#container-cart::-webkit-scrollbar-thumb {
+  background-color: var(--footer-color);
+  border-radius: 16px;
+  border: 3px solid var(--devbar-color);
 }
 
 .cart-img-wrapper {

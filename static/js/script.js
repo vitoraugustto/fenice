@@ -1,7 +1,5 @@
 document.body.classList.remove("preload");
 
-///////////////////////////////////////////////////////
-//Cadastro de Usuário
 const sendFormButton = document.getElementById("form-button");
 const addressComplement = document.getElementById("addressComplement");
 const addressNumber = document.getElementById("addressNumber");
@@ -17,6 +15,8 @@ const user = document.getElementById("user");
 const city = document.getElementById("city");
 const cep = document.getElementById("cep");
 
+///////////////////////////////////////////////////////
+//Realiza Cadastro
 function sendForm() {
   var settings = {
     url: "http://18.225.31.219:1880/cliente",
@@ -59,13 +59,18 @@ sendFormButton.addEventListener("click", () => {
   sendForm();
 });
 
+///////////////////////////////////////////////////////
+//Realiza Login
 const loginUser = document.getElementById("loginUser");
 const loginPassword = document.getElementById("loginPassword");
 const login = document.getElementById("login");
 
+var isLogged;
 
 function Login() {
   console.log("OI GENTE");
+
+  sessionStorage.setItem("Logado?", isLogged);
 
   var settings = {
     url: "http://18.225.31.219:1880/login",
@@ -84,19 +89,61 @@ function Login() {
     console.log(response.statusCode);
 
     if (response.statusCode == 200) {
-      window.location.href = "products.html";
-    } else {
-      console.log("not");
+      window.location.href = window.location.href;
+
+      isLogged = true;
+      sessionStorage.setItem("Logado?", isLogged);
+
+      sessionStorage.setItem("User", response.login.usuario);
+      sessionStorage.setItem("Email", response.cliente.email);
     }
   });
 }
 
-const contactUs = document.getElementById("contactUs");
-
 login.addEventListener("click", () => {
   Login();
 });
+///////////////////////////////////////////////////////
+//Envia Encomenda
+function sendOrder() {
+  const clientOrderEmail = document.getElementById("clientOrderEmail").value;
+  const productsOrder = document.getElementById("productsOrder").value;
+  const clientMessage = document.getElementById("clientMessage").value;
+  // const buttonOrder = document.getElementById("buttonOrder");
 
+  let orderMessage =
+    "Email do cliente: " +
+    clientOrderEmail +
+    "\n\n" +
+    productsOrder +
+    "\n\n" +
+    clientMessage;
+
+  var settings = {
+    url: "http://18.225.31.219:1880/encomenda",
+    method: "POST",
+    timeout: 0,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify({
+      encomenda: orderMessage,
+    }),
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
+///////////////////////////////////////////////////////
+
+if (sessionStorage.getItem("Logado?")) {
+  const orderButton = document.getElementById("order");
+
+  orderButton.style.display = "block";
+}
+
+const contactUs = document.getElementById("contactUs");
 const contactForm = document.getElementById("contactForm");
 
 contactUs.addEventListener("click", () => {
@@ -114,17 +161,17 @@ contactUs.addEventListener("click", () => {
 });
 
 const loginButton = document.getElementById("loginButton");
-const signinButton = document.getElementById("signinButton");
+const signupButton = document.getElementById("signupButton");
 
 const loginForm = document.getElementById("loginForm");
-const signinForm = document.getElementById("signinForm");
+const signupForm = document.getElementById("signupForm");
 
 const closeButton1 = document.getElementById("closeButton1");
 const closeButton2 = document.getElementById("closeButton2");
 const overlay = document.getElementById("overlay");
 
 closeButton1.addEventListener("click", () => {
-  signinForm.style.display = "none";
+  signupForm.style.display = "none";
   overlay.style.display = "none";
 });
 
@@ -138,8 +185,8 @@ loginButton.addEventListener("click", () => {
   overlay.style.display = "block";
 });
 
-signinButton.addEventListener("click", () => {
-  signinForm.style.display = "block";
+signupButton.addEventListener("click", () => {
+  signupForm.style.display = "block";
   overlay.style.display = "block";
 });
 
@@ -188,25 +235,9 @@ emailNews.addEventListener("keyup", () => {
   });
 });
 
-const hamburguer = document.getElementById("menu-hamburguer");
-const menuMobile = document.getElementById("menu-mobile");
+// if (window.innerWidth <= 570) {
 
-if (window.innerWidth <= 570) {
-  var isOpen = 0;
-  hamburguer.addEventListener("click", () => {
-    isOpen += 1;
-
-    if (isOpen == 1) {
-      menuMobile.style.top = "0px";
-      hamburguer.style.top = "180px";
-    } else {
-      menuMobile.style.top = "-170px";
-      hamburguer.style.top = "10px";
-
-      isOpen = 0;
-    }
-  });
-}
+// }
 
 [...document.getElementsByTagName("a")].forEach((a) =>
   a.classList.add("fromRight")
@@ -234,19 +265,20 @@ function cart() {
   const cartImg = document.getElementById("cart-img");
   cartImg.addEventListener("click", openCloseCart);
 
-  for (var i = 0; i < addToCartButtons.length; i++) {
-    var button = addToCartButtons[i];
-    button.addEventListener("click", () => {
-      containerCart.style.left = "0px";
-
-      isOpen = true;
-    });
-  }
+  // for (var i = 0; i < addToCartButtons.length; i++) {
+  //   var button = addToCartButtons[i];
+  //   button.addEventListener("click", () => {
+  //     containerCart.style.left = "0px";
+  //     isOpen = true;
+  //   });
+  // }
 
   purchaseButton.addEventListener("click", () => {
-    containerCart.style.left = "-567px";
+    if (sessionStorage.getItem("Logado?")) {
+      containerCart.style.left = "-567px";
 
-    isOpen = false;
+      isOpen = false;
+    }
   });
 }
 
@@ -254,6 +286,123 @@ const cartItemTitle = document.getElementsByClassName("cart-item-title");
 const cartItemPrice = document.getElementsByClassName("cart-item-price");
 
 if (window.location.pathname == "/fenice/products.html") {
+  if (document.readyState == "loading") {
+    document.addEventListener("DOMContentLoaded", ready);
+  } else {
+    ready();
+  }
+
+  function ready() {
+    var removeCartItemButtons = document.getElementsByClassName("btn-danger");
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+      var button = removeCartItemButtons[i];
+      button.addEventListener("click", removeCartItem);
+    }
+
+    var quantityInputs = document.getElementsByClassName("cart-quantity-input");
+    for (var i = 0; i < quantityInputs.length; i++) {
+      var input = quantityInputs[i];
+      input.addEventListener("change", quantityChanged);
+    }
+
+    var addToCartButtons = document.getElementsByClassName("button-products");
+    for (var i = 0; i < addToCartButtons.length; i++) {
+      var button = addToCartButtons[i];
+      button.addEventListener("click", addToCartClicked);
+    }
+
+    document
+      .getElementById("btn-purchase")
+      .addEventListener("click", purchaseClicked);
+  }
+
+  function purchaseClicked() {
+    if (sessionStorage.getItem("Logado?")) {
+      alert("Os itens foram enviados para Encomenda!");
+
+      var cartItems = document.getElementById("cart-items");
+      while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild);
+      }
+      updateCartTotal();
+    } else {
+      alert("Você deve estar logado para Encomendar!");
+    }
+  }
+
+  function removeCartItem(event) {
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+    updateCartTotal();
+  }
+
+  function quantityChanged(event) {
+    var input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+      input.value = 1;
+    }
+    updateCartTotal();
+  }
+
+  function addToCartClicked(event) {
+    var button = event.target;
+    var shopItem = button.parentElement;
+    var title = shopItem.getElementsByClassName("product-name")[0].innerText;
+    var price = shopItem.getElementsByClassName("product-price")[0].innerText;
+    var imageSrc = shopItem.getElementsByClassName("product-image")[0].src;
+    addItemToCart(title, price, imageSrc);
+    updateCartTotal();
+  }
+
+  function addItemToCart(title, price, imageSrc) {
+    var cartRow = document.createElement("div");
+    cartRow.classList.add("cart-row");
+    var cartItems = document.getElementById("cart-items");
+    var cartItemNames = cartItems.getElementsByClassName("cart-item-title");
+    for (var i = 0; i < cartItemNames.length; i++) {
+      if (cartItemNames[i].innerText == title) {
+        alert("Este item já foi adicionado ao carrinho.");
+        return;
+      }
+    }
+    var cartRowContents = `
+        <div class="cart-item cart-column">
+            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+            <span class="cart-item-title">${title}</span>
+        </div>
+        <span class="cart-price cart-item-price cart-column">${price}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="styled-button btn-danger" type="button">REMOVER</button>
+        </div>`;
+    cartRow.innerHTML = cartRowContents;
+    cartItems.append(cartRow);
+    cartRow
+      .getElementsByClassName("btn-danger")[0]
+      .addEventListener("click", removeCartItem);
+    cartRow
+      .getElementsByClassName("cart-quantity-input")[0]
+      .addEventListener("change", quantityChanged);
+  }
+
+  function updateCartTotal() {
+    var cartItemContainer = document.getElementById("cart-items");
+    var cartRows = cartItemContainer.getElementsByClassName("cart-row");
+    var total = 0;
+    for (var i = 0; i < cartRows.length; i++) {
+      var cartRow = cartRows[i];
+      var priceElement = cartRow.getElementsByClassName("cart-price")[0];
+      var quantityElement = cartRow.getElementsByClassName(
+        "cart-quantity-input"
+      )[0];
+      var price = parseFloat(priceElement.innerText.replace("R$", ""));
+      var quantity = quantityElement.value;
+      total = total + price * quantity;
+    }
+    total = Math.round(total * 100) / 100;
+    document.getElementById("cart-total-price").innerText = "R$" + total;
+  }
+
   cart();
 
   purchaseButton.addEventListener("click", () => {
@@ -264,19 +413,45 @@ if (window.location.pathname == "/fenice/products.html") {
         cartItemTitle[i].innerText + " " + cartItemPrice[i].innerText + "\n";
     }
 
-    const cartTotalPrice = document.getElementById("cart-total-price")
-      .innerText;
+    const cartTotalPrice =
+      document.getElementById("cart-total-price").innerText;
 
     localStorage.setItem("Produtos", priceAndNames);
     localStorage.setItem("Valor total", cartTotalPrice);
   });
+
+  const buttonProductAdded = document.getElementById("button-product-added");
+  const boxAddedToCart = document.getElementById("added-to-cart");
+
+  for (var i = 0; i < addToCartButtons.length; i++) {
+    var button = addToCartButtons[i];
+    button.addEventListener("click", () => {
+      boxAddedToCart.style.display = "block";
+    });
+  }
+
+  buttonProductAdded.onclick = () => {
+    boxAddedToCart.style.display = "none";
+    console.log(isLogged);
+  };
 }
 
 if (window.location.pathname == "/fenice/order.html") {
-  const textArea = document.getElementById("textarea");
-  textArea.value =
+  buttonOrder.onclick = () => {
+    sendOrder();
+
+    alert("Encomenda realizada com sucesso.");
+    window.location.href = "/products.html";
+  };
+
+  const clientOrderEmail = document.getElementById("clientOrderEmail");
+
+  clientOrderEmail.value = sessionStorage.getItem("Email");
+
+  const productsOrder = document.getElementById("productsOrder");
+  productsOrder.value =
     "Olá, eu gostei destes produtos: \n \n" +
     localStorage.getItem("Produtos") +
-    "\n \nTotal: " +
+    "\nTotal: " +
     localStorage.getItem("Valor total");
 }

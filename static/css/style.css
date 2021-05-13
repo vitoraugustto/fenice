@@ -114,8 +114,8 @@ input[type="number"] {
   clear: both;
 }
 
-div.row {
-  display: block;
+#order {
+  display: none;
 }
 
 /*SCROLLBAR*/
@@ -141,7 +141,6 @@ textarea::-webkit-scrollbar-thumb {
   border: 1px solid var(--main-color);
 }
 /*SCROLLBAR*/
-
 /*GENERAL STYLES*/
 
 /*HEADER*/
@@ -278,6 +277,7 @@ header div.menu-drop a {
 .menu-drop {
   position: relative;
   top: 7px;
+  z-index: 100;
 
   display: inline-block;
   cursor: pointer;
@@ -478,6 +478,7 @@ section.catalog div.single-product {
   height: auto;
   overflow: hidden;
   margin-right: 100px;
+  margin-top: 50px;
   box-shadow: 2px 2px 8px;
   transition: 0.3s transform ease, 0.3s padding-bottom ease;
 }
@@ -488,7 +489,7 @@ section.catalog div.single-product:focus {
   transform: scale(1.03);
 }
 
-section.catalog div.single-product:last-child {
+section.catalog div.single-product:nth-child(4n + 5) {
   margin-right: 0;
 }
 
@@ -512,12 +513,37 @@ section.catalog button.styled-button {
 section.catalog h2 {
   text-transform: uppercase;
   font-size: 30px;
-  display: inline-block;
+  display: block;
   border-bottom: 1px solid var(--main-color);
 }
 
 section.catalog div.row {
   margin: 40px 0;
+}
+
+div#added-to-cart {
+  position: fixed;
+  top: calc(50% - 56px);
+  left: calc(50% - 142px);
+  z-index: 10;
+
+  display: none;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  background-color: var(--footer-color);
+  border-radius: 16px;
+}
+/* 
+div#added-to-cart > p {
+  margin-top: 20px;
+} */
+
+div#added-to-cart > button {
+  cursor: pointer;
+  width: 30%;
+  font-size: 17px;
+  margin-top: 10px;
 }
 /*CATALOG*/
 
@@ -840,11 +866,12 @@ form#signupForm {
 /*FORMS*/
 
 /*ORDER*/
-#textarea {
-  background-color: var(--footer-color);
-  display: inline-block;
-  width: 100%;
+#productsOrder {
   height: 170px;
+}
+
+#clientMessage {
+  height: 120px;
 }
 
 form.order-form {
