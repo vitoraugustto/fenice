@@ -441,7 +441,7 @@ if (window.location.pathname == "/fenice/order.html") {
     sendOrder();
 
     alert("Encomenda realizada com sucesso.");
-    window.location.href = "/products.html";
+    window.location.href = "/fenice/products.html";
   };
 
   const clientOrderEmail = document.getElementById("clientOrderEmail");
