@@ -23,12 +23,12 @@ body {
   --light-gray: #f5f5f5;
 }
 
-.preload * {
+/* .preload * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
-}
+} */
 
 .container {
   margin: 0 auto;
@@ -277,7 +277,7 @@ header div.menu-drop a {
 .menu-drop {
   position: relative;
   top: 7px;
-  z-index: 100;
+  z-index: 1;
 
   display: inline-block;
   cursor: pointer;
@@ -326,6 +326,10 @@ header div.menu-drop a {
 
 .menu-drop:hover .drop-content {
   display: block;
+}
+
+#logoutButton {
+  display: none;
 }
 /*HEADER*/
 

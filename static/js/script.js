@@ -1,5 +1,3 @@
-document.body.classList.remove("preload");
-
 const sendFormButton = document.getElementById("form-button");
 const addressComplement = document.getElementById("addressComplement");
 const addressNumber = document.getElementById("addressNumber");
@@ -65,11 +63,8 @@ const loginUser = document.getElementById("loginUser");
 const loginPassword = document.getElementById("loginPassword");
 const login = document.getElementById("login");
 
-var isLogged;
-
 function Login() {
-  console.log("OI GENTE");
-
+  var isLogged = "false";
   sessionStorage.setItem("Logado?", isLogged);
 
   var settings = {
@@ -89,13 +84,12 @@ function Login() {
     console.log(response.statusCode);
 
     if (response.statusCode == 200) {
-      window.location.href = window.location.href;
+      isLogged = "true";
 
-      isLogged = true;
       sessionStorage.setItem("Logado?", isLogged);
-
       sessionStorage.setItem("User", response.login.usuario);
       sessionStorage.setItem("Email", response.cliente.email);
+      window.location.href = window.location.href;
     }
   });
 }
@@ -103,6 +97,7 @@ function Login() {
 login.addEventListener("click", () => {
   Login();
 });
+
 ///////////////////////////////////////////////////////
 //Envia Encomenda
 function sendOrder() {
@@ -111,7 +106,7 @@ function sendOrder() {
   const clientMessage = document.getElementById("clientMessage").value;
   // const buttonOrder = document.getElementById("buttonOrder");
 
-  let orderMessage =
+  var orderMessage =
     "Email do cliente: " +
     clientOrderEmail +
     "\n\n" +
@@ -136,12 +131,6 @@ function sendOrder() {
   });
 }
 ///////////////////////////////////////////////////////
-
-if (sessionStorage.getItem("Logado?")) {
-  const orderButton = document.getElementById("order");
-
-  orderButton.style.display = "block";
-}
 
 const contactUs = document.getElementById("contactUs");
 const contactForm = document.getElementById("contactForm");
@@ -190,6 +179,12 @@ signupButton.addEventListener("click", () => {
   overlay.style.display = "block";
 });
 
+logoutButton.onclick = () => {
+  isLogged = "false";
+  sessionStorage.setItem("Logado?", isLogged);
+  window.location.href = "/index.html";
+};
+
 const dominios = [
   "@hotmail.com",
   "@outlook.com",
@@ -235,10 +230,6 @@ emailNews.addEventListener("keyup", () => {
   });
 });
 
-// if (window.innerWidth <= 570) {
-
-// }
-
 [...document.getElementsByTagName("a")].forEach((a) =>
   a.classList.add("fromRight")
 );
@@ -265,14 +256,6 @@ function cart() {
   const cartImg = document.getElementById("cart-img");
   cartImg.addEventListener("click", openCloseCart);
 
-  // for (var i = 0; i < addToCartButtons.length; i++) {
-  //   var button = addToCartButtons[i];
-  //   button.addEventListener("click", () => {
-  //     containerCart.style.left = "0px";
-  //     isOpen = true;
-  //   });
-  // }
-
   purchaseButton.addEventListener("click", () => {
     if (sessionStorage.getItem("Logado?")) {
       containerCart.style.left = "-567px";
@@ -285,7 +268,7 @@ function cart() {
 const cartItemTitle = document.getElementsByClassName("cart-item-title");
 const cartItemPrice = document.getElementsByClassName("cart-item-price");
 
-if (window.location.pathname == "/fenice/products.html") {
+if (window.location.pathname == "/products.html") {
   if (document.readyState == "loading") {
     document.addEventListener("DOMContentLoaded", ready);
   } else {
@@ -416,8 +399,8 @@ if (window.location.pathname == "/fenice/products.html") {
     const cartTotalPrice =
       document.getElementById("cart-total-price").innerText;
 
-    localStorage.setItem("Produtos", priceAndNames);
-    localStorage.setItem("Valor total", cartTotalPrice);
+    sessionStorage.setItem("Produtos", priceAndNames);
+    sessionStorage.setItem("Valor total", cartTotalPrice);
   });
 
   const buttonProductAdded = document.getElementById("button-product-added");
@@ -432,16 +415,18 @@ if (window.location.pathname == "/fenice/products.html") {
 
   buttonProductAdded.onclick = () => {
     boxAddedToCart.style.display = "none";
-    console.log(isLogged);
   };
 }
 
-if (window.location.pathname == "/fenice/order.html") {
+if (window.location.pathname == "/order.html") {
   buttonOrder.onclick = () => {
     sendOrder();
 
+    sessionStorage.removeItem("Produtos");
+    sessionStorage.removeItem("Valor total");
+
     alert("Encomenda realizada com sucesso.");
-    window.location.href = "/fenice/products.html";
+    window.location.href = "/products.html";
   };
 
   const clientOrderEmail = document.getElementById("clientOrderEmail");
@@ -451,7 +436,34 @@ if (window.location.pathname == "/fenice/order.html") {
   const productsOrder = document.getElementById("productsOrder");
   productsOrder.value =
     "Olá, eu gostei destes produtos: \n \n" +
-    localStorage.getItem("Produtos") +
+    sessionStorage.getItem("Produtos") +
     "\nTotal: " +
-    localStorage.getItem("Valor total");
+    sessionStorage.getItem("Valor total");
+}
+
+const orderButton = document.getElementById("order");
+
+if (sessionStorage.getItem("Logado?") == "true") {
+  Logged();
+}
+
+if (sessionStorage.getItem("Logado?") == "false") {
+  console.log("teste");
+
+  sessionStorage.clear();
+  notLogged();
+}
+
+function Logged() {
+  orderButton.style.display = "block";
+  logoutButton.style.display = "block";
+  signupButton.style.display = "none";
+  loginButton.style.display = "none";
+}
+
+function notLogged() {
+  orderButton.style.display = "none";
+  logoutButton.style.display = "none";
+  signupButton.style.display = "block";
+  loginButton.style.display = "block";
 }
