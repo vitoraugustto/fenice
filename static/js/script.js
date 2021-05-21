@@ -65,7 +65,7 @@ const login = document.getElementById("login");
 
 function Login() {
   var isLogged = "false";
-  sessionStorage.setItem("Logado?", isLogged);
+  localStorage.setItem("Logado?", isLogged);
 
   var settings = {
     url: "http://18.225.31.219:1880/login",
@@ -86,13 +86,16 @@ function Login() {
     if (response.statusCode == 200) {
       isLogged = "true";
 
-      sessionStorage.setItem("Logado?", isLogged);
-      sessionStorage.setItem("User", response.login.usuario);
-      sessionStorage.setItem("Email", response.cliente.email);
+      localStorage.setItem("Logado?", isLogged);
+      localStorage.setItem("User", response.login.usuario);
+      localStorage.setItem("Email", response.cliente.email);
+      localStorage.setItem("Nome", response.cliente.nome)
       window.location.href = window.location.href;
     }
   });
 }
+
+const helloFulano = document.getElementById("helloFulano");
 
 login.addEventListener("click", () => {
   Login();
@@ -181,7 +184,7 @@ signupButton.addEventListener("click", () => {
 
 logoutButton.onclick = () => {
   isLogged = "false";
-  sessionStorage.setItem("Logado?", isLogged);
+  localStorage.setItem("Logado?", isLogged);
   window.location.href = "/index.html";
 };
 
@@ -257,16 +260,13 @@ function cart() {
   cartImg.addEventListener("click", openCloseCart);
 
   purchaseButton.addEventListener("click", () => {
-    if (sessionStorage.getItem("Logado?")) {
+    if (localStorage.getItem("Logado?")) {
       containerCart.style.left = "-567px";
 
       isOpen = false;
     }
   });
 }
-
-const cartItemTitle = document.getElementsByClassName("cart-item-title");
-const cartItemPrice = document.getElementsByClassName("cart-item-price");
 
 if (window.location.pathname == "/products.html") {
   if (document.readyState == "loading") {
@@ -300,7 +300,7 @@ if (window.location.pathname == "/products.html") {
   }
 
   function purchaseClicked() {
-    if (sessionStorage.getItem("Logado?")) {
+    if (localStorage.getItem("Logado?")) {
       alert("Os itens foram enviados para Encomenda!");
 
       var cartItems = document.getElementById("cart-items");
@@ -355,7 +355,7 @@ if (window.location.pathname == "/products.html") {
         </div>
         <span class="cart-price cart-item-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1">
+            <input type="text" maxlength="2" onchange="onlyIntNumbers(this)" class="cart-quantity-input" value="1">
             <button class="styled-button btn-danger" type="button">REMOVER</button>
         </div>`;
     cartRow.innerHTML = cartRowContents;
@@ -366,6 +366,10 @@ if (window.location.pathname == "/products.html") {
     cartRow
       .getElementsByClassName("cart-quantity-input")[0]
       .addEventListener("change", quantityChanged);
+  }
+
+  function onlyIntNumbers(element) {
+    element.value = element.value.replace(/[^0-9]/g,'');
   }
 
   function updateCartTotal() {
@@ -388,19 +392,23 @@ if (window.location.pathname == "/products.html") {
 
   cart();
 
+  const cartItemTitle = document.getElementsByClassName("cart-item-title");
+  const cartItemPrice = document.getElementsByClassName("cart-item-price");
+  const cartItemQuantity = document.getElementsByClassName("cart-quantity-input");
+
   purchaseButton.addEventListener("click", () => {
     var priceAndNames = "";
 
     for (var i = 0; i < cartItemTitle.length; i++) {
       priceAndNames +=
-        cartItemTitle[i].innerText + " " + cartItemPrice[i].innerText + "\n";
+        cartItemTitle[i].innerText + "\nQuantidade: " + cartItemQuantity[i].value + " - Preço unitário: " + cartItemPrice[i].innerText + "\n\n";
     }
 
     const cartTotalPrice =
       document.getElementById("cart-total-price").innerText;
 
-    sessionStorage.setItem("Produtos", priceAndNames);
-    sessionStorage.setItem("Valor total", cartTotalPrice);
+    localStorage.setItem("Produtos", priceAndNames);
+    localStorage.setItem("Valor total", cartTotalPrice+",00");
   });
 
   const buttonProductAdded = document.getElementById("button-product-added");
@@ -422,8 +430,8 @@ if (window.location.pathname == "/order.html") {
   buttonOrder.onclick = () => {
     sendOrder();
 
-    sessionStorage.removeItem("Produtos");
-    sessionStorage.removeItem("Valor total");
+    localStorage.removeItem("Produtos");
+    localStorage.removeItem("Valor total");
 
     alert("Encomenda realizada com sucesso.");
     window.location.href = "/products.html";
@@ -431,30 +439,33 @@ if (window.location.pathname == "/order.html") {
 
   const clientOrderEmail = document.getElementById("clientOrderEmail");
 
-  clientOrderEmail.value = sessionStorage.getItem("Email");
+  clientOrderEmail.value = localStorage.getItem("Email");
 
   const productsOrder = document.getElementById("productsOrder");
   productsOrder.value =
     "Olá, eu gostei destes produtos: \n \n" +
-    sessionStorage.getItem("Produtos") +
+    localStorage.getItem("Produtos") +
     "\nTotal: " +
-    sessionStorage.getItem("Valor total");
+    localStorage.getItem("Valor total");
 }
 
 const orderButton = document.getElementById("order");
 
-if (sessionStorage.getItem("Logado?") == "true") {
+if (localStorage.getItem("Logado?") == "true") {
   Logged();
 }
 
-if (sessionStorage.getItem("Logado?") == "false") {
+if (localStorage.getItem("Logado?") == "false") {
   console.log("teste");
-
-  sessionStorage.clear();
+  
+  localStorage.clear();
   notLogged();
 }
 
 function Logged() {
+  const helloFulano = document.getElementById("helloFulano");
+  helloFulano.innerText = `Olá, ${localStorage.getItem("Nome")}`
+
   orderButton.style.display = "block";
   logoutButton.style.display = "block";
   signupButton.style.display = "none";

@@ -162,6 +162,11 @@ header div.header-wrapper {
   margin: 0 auto;
 }
 
+p#helloFulano {
+  display: inline-block;
+  margin-right: 30px;
+}
+
 header div#menu-desktop {
   display: inline-block;
 }
@@ -904,7 +909,7 @@ form.order-form {
   }
 
   header div.header-wrapper {
-    max-width: 1150px;
+    max-width: 770px;
   }
 
   section.catalog div.single-product {
