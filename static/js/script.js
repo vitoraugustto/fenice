@@ -107,7 +107,6 @@ function sendOrder() {
   const clientOrderEmail = document.getElementById("clientOrderEmail").value;
   const productsOrder = document.getElementById("productsOrder").value;
   const clientMessage = document.getElementById("clientMessage").value;
-  // const buttonOrder = document.getElementById("buttonOrder");
 
   var orderMessage =
     "Email do cliente: " +
