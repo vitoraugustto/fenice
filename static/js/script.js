@@ -50,6 +50,12 @@ function sendForm() {
 
   $.ajax(settings).done(function (response) {
     console.log(response);
+
+    if (response.statusCode == 200) {
+      alert("Cadastro realizado.");
+
+      window.location.reload();
+    }
   });
 }
 
@@ -81,15 +87,13 @@ function Login() {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response.statusCode);
-
     if (response.statusCode == 200) {
       isLogged = "true";
 
       localStorage.setItem("Logado?", isLogged);
       localStorage.setItem("User", response.login.usuario);
       localStorage.setItem("Email", response.cliente.email);
-      localStorage.setItem("Nome", response.cliente.nome)
+      localStorage.setItem("Nome", response.cliente.nome);
       window.location.href = window.location.href;
     }
   });
@@ -213,6 +217,16 @@ emailNews.addEventListener("keyup", () => {
     newsButton.style.cursor = "not-allowed";
   }
 });
+
+newsButton.onclick = () => {
+  alert(
+    "Você foi cadastrado na nossa newsletter. Aguarde por novidades no seu email cadastrado!"
+  );
+};
+
+contactButton.onclick = () => {
+  alert("Mensagem enviada, entraremos em contato no email inserido!");
+};
 
 [emailContact, textAreaContact].forEach((contactField) => {
   contactField.addEventListener("keyup", () => {
@@ -368,7 +382,7 @@ if (window.location.pathname == "/products.html") {
   }
 
   function onlyIntNumbers(element) {
-    element.value = element.value.replace(/[^0-9]/g,'');
+    element.value = element.value.replace(/[^0-9]/g, "");
   }
 
   function updateCartTotal() {
@@ -393,21 +407,41 @@ if (window.location.pathname == "/products.html") {
 
   const cartItemTitle = document.getElementsByClassName("cart-item-title");
   const cartItemPrice = document.getElementsByClassName("cart-item-price");
-  const cartItemQuantity = document.getElementsByClassName("cart-quantity-input");
+  const cartItemQuantity = document.getElementsByClassName(
+    "cart-quantity-input"
+  );
+
+  setInterval(() => {
+    console.log(cartItemTitle.length);
+    if (cartItemTitle.length == 0) {
+      purchaseButton.setAttribute("disabled", true);
+      purchaseButton.style.cursor = "not-allowed";
+    } else {
+      purchaseButton.removeAttribute("disabled");
+      purchaseButton.style.cursor = "pointer";
+    }
+  }, 500);
 
   purchaseButton.addEventListener("click", () => {
+    console.log("TESTEEER");
+
     var priceAndNames = "";
 
     for (var i = 0; i < cartItemTitle.length; i++) {
       priceAndNames +=
-        cartItemTitle[i].innerText + "\nQuantidade: " + cartItemQuantity[i].value + " - Preço unitário: " + cartItemPrice[i].innerText + "\n\n";
+        cartItemTitle[i].innerText +
+        "\nQuantidade: " +
+        cartItemQuantity[i].value +
+        " - Preço unitário: " +
+        cartItemPrice[i].innerText +
+        "\n\n";
     }
 
     const cartTotalPrice =
       document.getElementById("cart-total-price").innerText;
 
     localStorage.setItem("Produtos", priceAndNames);
-    localStorage.setItem("Valor total", cartTotalPrice+",00");
+    localStorage.setItem("Valor total", cartTotalPrice + ",00");
   });
 
   const buttonProductAdded = document.getElementById("button-product-added");
@@ -417,12 +451,16 @@ if (window.location.pathname == "/products.html") {
     var button = addToCartButtons[i];
     button.addEventListener("click", () => {
       boxAddedToCart.style.display = "block";
+
+      setTimeout(() => {
+        boxAddedToCart.style.display = "none";
+      }, 1200);
     });
   }
 
-  buttonProductAdded.onclick = () => {
-    boxAddedToCart.style.display = "none";
-  };
+  // buttonProductAdded.onclick = () => {
+  //   boxAddedToCart.style.display = "none";
+  // };
 }
 
 if (window.location.pathname == "/order.html") {
@@ -455,15 +493,13 @@ if (localStorage.getItem("Logado?") == "true") {
 }
 
 if (localStorage.getItem("Logado?") == "false") {
-  console.log("teste");
-  
   localStorage.clear();
   notLogged();
 }
 
 function Logged() {
   const helloFulano = document.getElementById("helloFulano");
-  helloFulano.innerText = `Olá, ${localStorage.getItem("Nome")}`
+  helloFulano.innerText = `Olá, ${localStorage.getItem("Nome")}`;
 
   orderButton.style.display = "block";
   logoutButton.style.display = "block";

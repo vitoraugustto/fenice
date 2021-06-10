@@ -442,6 +442,10 @@ section.trending-products {
   margin: 30px 0;
 }
 
+.trendingspan {
+  font-size: 30px;
+}
+
 section.trending-products div.single-product {
   display: inline-block;
   width: 22%;
@@ -579,7 +583,7 @@ div.aboutUs h2 {
 div.aboutUs p {
   display: inline-block;
   width: 30%;
-  padding: 0 20px;
+  padding: 130px 20px 60px 20px;
   text-align: justify;
   font-size: 20px;
 }
